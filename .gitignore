@@ -3,3 +3,10 @@
 *.swp
 *.swo
 node_modules/
+
+# build output
+dist/
+
+# API keys
+.env
+.env.local

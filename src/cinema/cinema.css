@@ -1,0 +1,261 @@
+/* ─── cinema overlay ───────────────────────────────────────────────────────── */
+
+#card-overlay {
+    background: #000;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition: opacity 0.5s ease;
+    z-index: 20000;
+}
+
+#card-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* the projected frame — clip-path is animated from the thumbnail's rect */
+#card-frame {
+    inset: 0;
+    overflow: hidden;
+    position: absolute;
+    clip-path: inset(0 0 0 0);
+}
+
+#card-shot {
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    will-change: transform;
+}
+
+#card-img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.04);
+}
+
+/* ─── ken burns: slow drift, a different move per shot ──────────────────────── */
+
+.kb-0 { animation: kb0 26s ease-in-out infinite alternate; }
+.kb-1 { animation: kb1 30s ease-in-out infinite alternate; }
+.kb-2 { animation: kb2 24s ease-in-out infinite alternate; }
+.kb-3 { animation: kb3 28s ease-in-out infinite alternate; }
+
+@keyframes kb0 {
+    from { transform: scale(1.10) translate(-2.5%, -1.5%); }
+    to   { transform: scale(1.30) translate(2.5%,  1.5%); }
+}
+
+@keyframes kb1 {
+    from { transform: scale(1.32) translate(3%, 1.5%); }
+    to   { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+@keyframes kb2 {
+    from { transform: scale(1.14) translate(3.5%, 1%); }
+    to   { transform: scale(1.26) translate(-3.5%, -1.5%); }
+}
+
+@keyframes kb3 {
+    from { transform: scale(1.24) translate(0%, -2.5%); }
+    to   { transform: scale(1.12) translate(0%,  2.5%); }
+}
+
+/* ─── film treatment: letterbox, vignette, grain, flicker ───────────────────── */
+
+.bar {
+    background: #000;
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: height 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    z-index: 3;
+}
+
+.bar.top    { top: 0; }
+.bar.bottom { bottom: 0; }
+
+#card-overlay.open .bar { height: 7vh; }
+
+#card-vignette {
+    background:
+        radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent 22%, transparent 72%, rgba(0, 0, 0, 0.55));
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+}
+
+#card-grain {
+    animation: grain-shift 0.6s steps(4) infinite;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.5'/></svg>");
+    inset: -60px;
+    mix-blend-mode: overlay;
+    opacity: 0.22;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+}
+
+@keyframes grain-shift {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-14px, 8px); }
+    50%  { transform: translate(10px, -12px); }
+    75%  { transform: translate(-8px, -6px); }
+    100% { transform: translate(12px, 10px); }
+}
+
+/* one-shot projector flash when a shot starts */
+#card-flash {
+    background: #fff;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 4;
+}
+
+#card-flash.fire {
+    animation: flash 0.5s ease-out;
+}
+
+@keyframes flash {
+    0%   { opacity: 0.28; }
+    100% { opacity: 0; }
+}
+
+/* ─── titles ────────────────────────────────────────────────────────────────── */
+
+#card-info {
+    bottom: calc(7vh + 26px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    left: 5vw;
+    position: absolute;
+    right: 5vw;
+    transition: opacity 400ms;
+    z-index: 5;
+}
+
+#card-location,
+#card-counter {
+    color: white;
+    font-family: "Space Mono", monospace;
+    opacity: 0;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+    transform: translateY(14px);
+}
+
+#card-location {
+    font-size: clamp(1.1rem, 2.6vw, 2rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+#card-counter {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+}
+
+.titles-in #card-location { animation: title-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+.titles-in #card-counter  { animation: title-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.68s forwards; }
+
+@keyframes title-in {
+    from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+    to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+/* ─── controls ──────────────────────────────────────────────────────────────── */
+
+#card-close {
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    position: absolute;
+    right: 24px;
+    text-align: center;
+    top: calc(7vh + 20px);
+    transition: background 300ms, border-color 300ms, opacity 300ms;
+    width: 40px;
+    z-index: 6;
+}
+
+#card-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.card-nav {
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 56px;
+    line-height: 52px;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 300ms, border-color 300ms, opacity 400ms;
+    width: 56px;
+    z-index: 6;
+}
+
+#card-prev { left: 24px; }
+#card-next { right: 24px; }
+
+.card-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* controls fade away while you just watch */
+#card-overlay.idle .card-nav,
+#card-overlay.idle #card-close,
+#card-overlay.idle #card-info { opacity: 0.06; }
+
+@media (prefers-reduced-motion: reduce) {
+    #card-shot { animation: none !important; }
+    #card-grain { animation: none; opacity: 0.1; }
+}
+
+/* ─── credit line (required on every photo) ─────────────────────────────────── */
+
+#card-credit {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Space Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    transform: translateY(14px);
+}
+
+#card-credit a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#card-credit a:hover { color: #fff; border-bottom-color: #fff; }
+
+.titles-in #card-credit { animation: title-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.82s forwards; }

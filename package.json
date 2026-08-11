@@ -1,0 +1,23 @@
+{
+  "name": "atlas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch": "node scripts/fetch.js",
+    "curate": "node scripts/curate.js",
+    "seed": "node scripts/seed.js"
+  },
+  "devDependencies": {
+    "d3-geo": "^3.1.1",
+    "vite": "^7.1.12"
+  },
+  "dependencies": {
+    "globe.gl": "^2.44.0",
+    "three": "^0.185.1",
+    "topojson-client": "^3.1.0"
+  }
+}

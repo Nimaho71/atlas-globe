@@ -1,25 +1,53 @@
-# Parallax Image Gallery
+# Atlas
 
-A smooth parallax drag-scroll image track built with the native **Web Animations API** and mouse tracking — no libraries.
+An interactive 3D globe of photographs. Spin the world, open a country, and its photos
+play back like a film — full-bleed, Ken Burns drift, letterbox, hard cuts.
 
-## Features
-- Fluid drag-scroll with momentum and easing
-- Parallax depth on individual images based on scroll percentage
-- Cinema view: click an image and it unfolds from its spot in the track into a
-  full-bleed shot with letterbox bars, a slow Ken Burns zoom/pan, film grain,
-  vignette and title cards. Arrow keys / swipe cut between shots, Esc folds it back.
-- Captions come from `data-location` on each `<img>`
-- Scramble-text animation on the hero heading
-- Custom cursor blob that follows mouse position
-- Bug fix: click-without-drag no longer freezes the track (missing `data-percentage` attribute)
+Built with vanilla JS + [globe.gl](https://github.com/vasturiano/globe.gl) (Three.js).
+No framework.
 
-## Tech
-- Vanilla JavaScript (ES6+)
-- CSS custom properties + transitions
-- Web Animations API (`Element.animate()`)
+See [PLAN.md](PLAN.md) for the full design, photo-sourcing decisions and roadmap.
 
 ## Run locally
-Just open `index.html` in a browser — no build step.
 
-## Live
-Deployed on [nilshogberg.vercel.app](https://nilshogberg.vercel.app) as a portfolio sub-project.
+```bash
+npm install
+npm run dev
+```
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Vite dev server |
+| `npm run build` | Static build into `dist/` |
+| `npm run seed` | Regenerates the **placeholder** `photos.json` + country centroids |
+| `npm run fetch` | *(Phase 1)* Pulls real photos from Unsplash into `photos.json` |
+
+## Data
+
+The site loads one static file, `public/data/photos.json`, and never calls a photo API
+at runtime. That file is generated once on a developer machine and committed — so the
+photo set is fixed, there's no API key in the browser, and no rate limits apply to
+visitors.
+
+**`photos.json` is currently placeholder data** (nature-gallery images spread across ten
+countries; they are not pictures of those countries). It gets replaced in Phase 1.
+
+Country shapes are Natural Earth 110m via
+[world-atlas](https://github.com/topojson/world-atlas), committed to `public/data/`.
+
+## Structure
+
+```
+index.html          globe page
+gallery/            the original nature gallery, kept at /gallery
+src/globe/          globe, polygons, camera flights
+src/strip/          the drag-scroll photo strip
+src/cinema/         the full-screen cinematic viewer
+src/ui/             cursor blob
+scripts/seed.js     placeholder data generator
+```
+
+## Deploy
+
+Vercel, framework preset Vite (`vercel.json` sets build command and output dir).
+The previous static gallery is preserved at `/gallery` and tagged `v1-nature-gallery`.
