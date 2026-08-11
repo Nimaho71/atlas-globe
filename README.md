@@ -5,6 +5,10 @@ A smooth parallax drag-scroll image track built with the native **Web Animations
 ## Features
 - Fluid drag-scroll with momentum and easing
 - Parallax depth on individual images based on scroll percentage
+- Cinema view: click an image and it unfolds from its spot in the track into a
+  full-bleed shot with letterbox bars, a slow Ken Burns zoom/pan, film grain,
+  vignette and title cards. Arrow keys / swipe cut between shots, Esc folds it back.
+- Captions come from `data-location` on each `<img>`
 - Scramble-text animation on the hero heading
 - Custom cursor blob that follows mouse position
 - Bug fix: click-without-drag no longer freezes the track (missing `data-percentage` attribute)
