@@ -17,12 +17,15 @@ const PALETTE = {
     hover:         'rgba(139, 215, 95, 0.62)',
     spotlight:     'rgba(180, 255, 130, 0.85)',
     spotlightEdge: 'rgba(220, 255, 190, 1)',
-    arcFrom:       'rgba(139, 215, 95, 0)',
-    arcTo:         'rgba(180, 255, 150, 0.9)',
+    arcLive:       'rgba(196, 255, 160, 0.95)',
+    arcDone:       'rgba(139, 215, 95, 0.22)',
     land:        'rgba(255, 255, 255, 0.07)',
     landEdge:    'rgba(255, 255, 255, 0.15)',
     ocean:       '#05080d',
 };
+
+// how many flown legs stay visible behind the camera
+const MAX_LEGS = 4;
 
 export async function createGlobe(el, { countries, onCountryClick, onCountryHover } = {}) {
     const [topo, iso] = await Promise.all([
@@ -54,16 +57,23 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         .pointsMerge(false)
         .pointLabel(label)
         .onPointClick(c => onCountryClick?.(c))
-        // the tour's flight path, drawn behind the camera as it travels
+        // The tour's flight path. While a leg is in the air it's a single lit
+        // dash travelling the arc over the flight's duration, so it reads as the
+        // camera's own path; once landed it settles into a dim static line.
         .arcStartLat('fromLat').arcStartLng('fromLng')
         .arcEndLat('toLat').arcEndLng('toLng')
-        .arcColor(() => [PALETTE.arcFrom, PALETTE.arcTo])
-        .arcStroke(0.55)
+        // solid while flying — a gradient would fade the travelling dash out
+        // exactly where it starts, which is when you most want to see it
+        .arcColor(d => d.done
+            ? ['rgba(139, 215, 95, 0)', PALETTE.arcDone]
+            : PALETTE.arcLive)
+        .arcStroke(d => d.done ? 0.3 : 0.75)
         // enough lift that a leg reads as a flight rather than a line on a map
         .arcAltitudeAutoScale(0.62)
-        .arcDashLength(0.55)
-        .arcDashGap(0.25)
-        .arcDashInitialGap(1)
+        .arcDashLength(d => d.done ? 1 : 0.4)
+        .arcDashGap(d => d.done ? 0 : 0.6)
+        .arcDashInitialGap(d => d.done ? 0 : 1)
+        .arcDashAnimateTime(d => d.done ? 0 : d.ms)
         .arcsTransitionDuration(0);
 
     // Someone who asked the system for less motion doesn't want a globe that
@@ -149,16 +159,27 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         spotlight: isoCode => { spotlight = isoCode; repaint(); },
 
         /**
-         * Draw the leg the camera is about to fly. `ms` matches the flight so the
-         * dash arrives roughly when the camera does; the arc then stays as a
-         * record of where the tour has been.
+         * Draw the leg the camera is about to fly: a lit dash that travels the
+         * arc over `ms`, matching the flight, then settles into a faint line.
+         * Only the last few legs are kept — a whole tour's worth of arcs turns
+         * the globe into a ball of string.
          */
         addLeg(from, to, ms = 1600) {
-            legs = [...legs, {
+            const leg = {
                 fromLat: from.lat, fromLng: from.lng,
                 toLat:   to.lat,   toLng:   to.lng,
-            }];
-            globe.arcDashAnimateTime(calm ? 0 : ms).arcsData(legs);
+                ms:      calm ? 0 : ms,
+                done:    calm,          // no travelling dash under reduced motion
+            };
+            legs = [...legs, leg].slice(-MAX_LEGS);
+            globe.arcsData(legs);
+
+            // settle it once the camera has landed
+            setTimeout(() => {
+                if (!legs.includes(leg)) return;   // dropped or tour stopped
+                leg.done = true;
+                globe.arcsData(legs);
+            }, ms);
         },
         clearLegs() {
             legs = [];
