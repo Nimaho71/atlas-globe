@@ -45,7 +45,8 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
         for (const [i, country] of order.entries()) {
             if (token !== mine) return;
 
-            // 1 — fly there, with the globe in view
+            // 1 — light the destination up, then fly to it
+            world.spotlight(country.iso);
             world.flyTo(country.lat, country.lng, 1.7, FLY_MS);
             await wait(FLY_MS * 0.75);
             if (token !== mine) return;
@@ -60,6 +61,7 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
             const shots = country.photos.slice(0, SHOTS);
             preload(order[i + 1]);
             await cinema.playAll(shots, { shotMs: SHOT_MS });
+            world.spotlight(null);
             if (token !== mine) return;
 
             cinema.close();
@@ -77,6 +79,7 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
         el.removeEventListener('click', stop);
         hideCard();
         document.body.classList.remove('touring');
+        world.spotlight(null);
         cinema.close();
         world.home(1400);
         world.autoRotate(true);

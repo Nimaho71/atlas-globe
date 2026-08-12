@@ -12,15 +12,17 @@ import { MeshPhongMaterial, Color } from 'three';
 const PALETTE = {
     marker:      '#8bd75f',
     atmosphere:  '#3ea5b2',
-    visited:     'rgba(139, 215, 95, 0.30)',
-    visitedEdge: 'rgba(139, 215, 95, 0.75)',
-    hover:       'rgba(139, 215, 95, 0.62)',
+    visited:       'rgba(139, 215, 95, 0.30)',
+    visitedEdge:   'rgba(139, 215, 95, 0.75)',
+    hover:         'rgba(139, 215, 95, 0.62)',
+    spotlight:     'rgba(180, 255, 130, 0.85)',
+    spotlightEdge: 'rgba(220, 255, 190, 1)',
     land:        'rgba(255, 255, 255, 0.07)',
     landEdge:    'rgba(255, 255, 255, 0.15)',
     ocean:       '#05080d',
 };
 
-export async function createGlobe(el, { countries, onCountryClick } = {}) {
+export async function createGlobe(el, { countries, onCountryClick, onCountryHover } = {}) {
     const [topo, iso] = await Promise.all([
         fetch('/data/countries-110m.json').then(r => r.json()),
         fetch('/data/iso.json').then(r => r.json()),
@@ -59,27 +61,43 @@ export async function createGlobe(el, { countries, onCountryClick } = {}) {
     // cap DPR — phones report 3 and triple the pixel count for no visible gain
     globe.renderer().setPixelRatio(Math.min(devicePixelRatio, 2));
 
-    let hovered = null;
+    let hovered   = null;
+    let spotlight = null;   // ISO the tour is flying to
 
     const capColor = f =>
-        f === hovered && f.properties.data ? PALETTE.hover
-      : f.properties.data                  ? PALETTE.visited
+        f.properties.iso === spotlight        ? PALETTE.spotlight
+      : f === hovered && f.properties.data    ? PALETTE.hover
+      : f.properties.data                     ? PALETTE.visited
       : PALETTE.land;
 
-    const repaint = () => globe.polygonCapColor(capColor);
+    const strokeColor = f =>
+        f.properties.iso === spotlight ? PALETTE.spotlightEdge
+      : f.properties.data              ? PALETTE.visitedEdge
+      : PALETTE.landEdge;
+
+    const altitude = f =>
+        f.properties.iso === spotlight ? 0.03
+      : f.properties.data              ? 0.012
+      : 0.006;
+
+    const repaint = () => globe
+        .polygonCapColor(capColor)
+        .polygonStrokeColor(strokeColor)
+        .polygonAltitude(altitude);
 
     globe.globeMaterial(oceanMaterial())
          .polygonsData(all)
          .polygonCapColor(capColor)
          .polygonSideColor(() => 'rgba(139, 215, 95, 0.10)')
-         .polygonStrokeColor(f => f.properties.data ? PALETTE.visitedEdge : PALETTE.landEdge)
-         .polygonAltitude(f => f.properties.data ? 0.012 : 0.006)
-         .polygonsTransitionDuration(0)
+         .polygonStrokeColor(strokeColor)
+         .polygonAltitude(altitude)
+         .polygonsTransitionDuration(220)
          .onPolygonHover(f => {
              const next = f?.properties.data ? f : null;
              if (next === hovered) return;
              hovered = next;
              el.style.cursor = hovered ? 'pointer' : '';
+             onCountryHover?.(hovered?.properties.data ?? null);
              repaint();
          })
          .onPolygonClick(f => f?.properties?.data && onCountryClick?.(f.properties.data));
@@ -109,6 +127,8 @@ export async function createGlobe(el, { countries, onCountryClick } = {}) {
         home,
         setPaused,
         autoRotate: on => { globe.controls().autoRotate = on; },
+        /** Light up one country — the tour uses this to show where it's heading. */
+        spotlight: isoCode => { spotlight = isoCode; repaint(); },
     };
 }
 

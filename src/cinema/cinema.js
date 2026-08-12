@@ -84,6 +84,12 @@ export function createCinema({ onOpen, onClose } = {}) {
 
     function open(list, startIdx = 0, sourceEl = null, { auto = false } = {}) {
         if (!list?.length) return;
+
+        // A finished close() keeps its collapsed clip-path (fill: 'both'), so drop
+        // any leftover animation before showing the frame again — otherwise the
+        // tour, which skips the unfold, inherits the last thumbnail's rectangle.
+        frame.getAnimations().forEach(a => a.cancel());
+
         overlay.classList.toggle('auto', auto);
         photos   = list;
         idx      = startIdx;

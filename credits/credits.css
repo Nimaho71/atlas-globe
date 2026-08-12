@@ -1,0 +1,100 @@
+:root {
+    --green: rgb(139, 215, 95);
+    --mono:  "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background: #04070b;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--mono);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 780px;
+    padding: 6vh 5vw 12vh;
+}
+
+a { color: var(--green); }
+
+.back {
+    display: inline-block;
+    font-size: 0.78rem;
+    margin-bottom: 3rem;
+    text-decoration: none;
+}
+
+.back:hover { text-decoration: underline; }
+
+h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    letter-spacing: 0.14em;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+}
+
+.lede { color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; max-width: 60ch; }
+
+.count {
+    color: var(--green);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+section { margin-bottom: 2.6rem; }
+
+h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.82rem;
+    letter-spacing: 0.28em;
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+li {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+    padding: 7px 0;
+}
+
+.thumb img {
+    border-radius: 4px;
+    display: block;
+    height: 56px;
+    object-fit: cover;
+    width: 80px;
+}
+
+.who { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.who a { font-size: 0.82rem; text-decoration: none; }
+.who a:hover { text-decoration: underline; }
+
+.who em {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.72rem;
+    font-style: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.licence {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.7rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+}

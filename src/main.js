@@ -24,9 +24,17 @@ const strip = createStrip({
     onPhotoClick: (photos, i, el) => cinema.open(photos, i, el),
 });
 
+const hoverName = document.getElementById('hover-name');
+
 const world = await createGlobe(app, {
     countries: data.countries,
     onCountryClick: country => openCountry(country),
+    onCountryHover: country => {
+        hoverName.textContent = country
+            ? `${country.name} · ${country.photos.length} photos`
+            : '';
+        hoverName.classList.toggle('on', !!country);
+    },
 });
 
 if (import.meta.env.DEV) window.__world = world;   // handle for debugging

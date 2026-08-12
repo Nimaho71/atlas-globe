@@ -6,6 +6,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
+                credits: resolve(__dirname, 'credits/index.html'),
                 // the original nature gallery, kept at /gallery
                 gallery: resolve(__dirname, 'gallery/index.html'),
             },

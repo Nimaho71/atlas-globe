@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Atlas — a world of photographs</title>
     <meta name="description" content="Spin the globe, open a country, watch its photographs play like a film.">
+
+    <!-- what shows up when the link is pasted into a chat, a DM or LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Atlas — a world of photographs">
+    <meta property="og:description" content="Spin the globe, open a country, watch its photographs play like a film.">
+    <meta property="og:url" content="https://nature-nilshogberg.vercel.app/">
+    <!-- hotlinked from Unsplash (credited on /credits) rather than stored, which
+         is what their guidelines ask for -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1563985336376-568060942b80?ixid=M3wxMDI2MzE5fDB8MXxzZWFyY2h8MXx8TmFtaWJpYSUyMGRlc2VydCUyMGR1bmVzfGVufDF8MHx8fDE3ODY1Mjg2OTF8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&crop=entropy&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
 </head>
 <body>
     <div id="blob"></div>
@@ -15,7 +29,10 @@
         <p>Spin · Choose a country · Watch</p>
     </header>
 
+    <div id="hover-name"></div>
+
     <a id="back-link" class="pill" href="https://nilshogberg.vercel.app">← Portfolio</a>
+    <a id="credits-link" class="pill" href="/credits/">Credits</a>
     <button id="tour-play" class="pill" hidden>World tour</button>
     <div id="hint" class="pill">drag to spin · click a country</div>
 

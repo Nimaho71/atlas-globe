@@ -128,14 +128,51 @@ body.country-open .scene-tooltip { display: none; }
     border-color: rgba(255, 255, 255, 0.7);
 }
 
-#back-link { bottom: 14px; left: 14px; }
+#back-link    { bottom: 14px; left: 14px; }
+#credits-link { bottom: 14px; right: 14px; }
+
+body.country-open #credits-link,
+body.touring #credits-link { opacity: 0; pointer-events: none; }
 /* top-right: the bottom strip belongs to the tour button */
 #hint      { pointer-events: none; right: 14px; top: 14px; }
 
 body.country-open #hint { opacity: 0; }
 
+/* ─── hovered country readout ────────────────────────────────────────────── */
+
+#hover-name {
+    bottom: 62px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    left: 50%;
+    letter-spacing: 0.16em;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    transform: translate(-50%, 6px);
+    transition: opacity 220ms ease, transform 220ms ease;
+    white-space: nowrap;
+    z-index: 500;
+}
+
+#hover-name.on { opacity: 1; transform: translate(-50%, 0); }
+
+body.country-open #hover-name,
+body.touring #hover-name { opacity: 0; }
+
 @media (max-width: 720px) {
     #hint { display: none; }
+
+    /* the bottom strip belongs to the tour button alone — on a phone the
+       other links sit along the top instead of fighting it for space */
+    #back-link    { bottom: auto; left: 14px;  top: 14px; }
+    #credits-link { bottom: auto; right: 14px; top: 14px; }
+
+    /* no hover on touch, so the readout is dead weight */
+    #hover-name { display: none; }
 }
 
 /* ─── boot screen (shown until the globe chunk is ready) ─────────────────── */
