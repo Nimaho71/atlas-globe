@@ -398,5 +398,105 @@
       "unsplash-PVWUjKFP0fE",
       "unsplash-xlO7umtg9ME"
     ]
+  },
+  "NLD": {
+    "query": "Netherlands canals windmills",
+    "keep": []
+  },
+  "DEU": {
+    "query": "Germany landscape castle",
+    "keep": []
+  },
+  "AUT": {
+    "query": "Austria alps hallstatt",
+    "keep": []
+  },
+  "CZE": {
+    "query": "Czech Republic landscape",
+    "keep": []
+  },
+  "POL": {
+    "query": "Poland tatra mountains",
+    "keep": []
+  },
+  "DNK": {
+    "query": "Denmark coast copenhagen",
+    "keep": []
+  },
+  "SVN": {
+    "query": "Slovenia lake bled alps",
+    "keep": []
+  },
+  "ROU": {
+    "query": "Romania transylvania mountains",
+    "keep": []
+  },
+  "KOR": {
+    "query": "South Korea temple seoul",
+    "keep": []
+  },
+  "LKA": {
+    "query": "Sri Lanka landscape",
+    "keep": []
+  },
+  "MNG": {
+    "query": "Mongolia steppe nomad",
+    "keep": []
+  },
+  "GEO": {
+    "query": "Georgia caucasus mountains",
+    "keep": []
+  },
+  "UZB": {
+    "query": "Uzbekistan samarkand architecture",
+    "keep": []
+  },
+  "KHM": {
+    "query": "Cambodia angkor temple",
+    "keep": []
+  },
+  "BTN": {
+    "query": "Bhutan monastery himalaya",
+    "keep": []
+  },
+  "MMR": {
+    "query": "Myanmar bagan temples",
+    "keep": []
+  },
+  "MDG": {
+    "query": "Madagascar baobab landscape",
+    "keep": []
+  },
+  "ETH": {
+    "query": "Ethiopia landscape",
+    "keep": []
+  },
+  "BWA": {
+    "query": "Botswana okavango delta",
+    "keep": []
+  },
+  "CUB": {
+    "query": "Cuba havana colonial",
+    "keep": []
+  },
+  "COL": {
+    "query": "Colombia landscape",
+    "keep": []
+  },
+  "ECU": {
+    "query": "Ecuador andes quito",
+    "keep": []
+  },
+  "BOL": {
+    "query": "Bolivia salt flats uyuni",
+    "keep": []
+  },
+  "GTM": {
+    "query": "Guatemala volcano antigua",
+    "keep": []
+  },
+  "FJI": {
+    "query": "Fiji island beach",
+    "keep": []
   }
 }
