@@ -1,0 +1,117 @@
+#tour {
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 800;
+}
+
+body.touring #tour { pointer-events: auto; }
+
+/* darkens the middle so the place name reads over a lit country */
+#tour::before {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.62) 0%, transparent 62%);
+    content: '';
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition: opacity 600ms ease;
+}
+
+#tour.card-in::before { opacity: 1; }
+
+/* ─── arrival card ───────────────────────────────────────────────────────── */
+
+#tour-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 50%;
+    opacity: 0;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 600ms ease;
+}
+
+#tour.card-in #tour-card { opacity: 1; }
+
+#tour-place {
+    color: #fff;
+    font-family: var(--mono);
+    font-size: clamp(1.6rem, 5vw, 3.4rem);
+    letter-spacing: 0.24em;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+}
+
+#tour.card-in #tour-place {
+    animation: tour-title 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tour-title {
+    from { filter: blur(10px); letter-spacing: 0.5em; opacity: 0; }
+    to   { filter: blur(0);    letter-spacing: 0.24em; opacity: 1; }
+}
+
+#tour-index {
+    color: var(--green);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.34em;
+}
+
+/* ─── exit affordance ────────────────────────────────────────────────────── */
+
+#tour-exit {
+    bottom: 14px;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 500ms ease;
+}
+
+body.touring #tour-exit { opacity: 0.55; }
+body.touring #tour-exit:hover { opacity: 1; }
+
+/* while touring, the ordinary chrome gets out of the way */
+body.touring #masthead,
+body.touring #hint,
+body.touring #back-link,
+body.touring #tour-play { opacity: 0; pointer-events: none; }
+
+/* ─── play button ────────────────────────────────────────────────────────── */
+
+#tour-play {
+    align-items: center;
+    border-color: rgba(139, 215, 95, 0.35);
+    bottom: 14px;
+    color: var(--green);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background 400ms, border-color 400ms, opacity 400ms;
+}
+
+#tour-play:hover {
+    background: rgba(139, 215, 95, 0.14);
+    border-color: rgba(139, 215, 95, 0.8);
+}
+
+#tour-play::before {
+    border-color: transparent transparent transparent var(--green);
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    content: '';
+    display: block;
+}
+
+body.country-open #tour-play { opacity: 0; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    #tour.card-in #tour-place { animation: none; }
+}

@@ -1,6 +1,7 @@
 import './style.css';
 import { createCinema } from './cinema/cinema.js';
 import { createStrip } from './strip/strip.js';
+import { createTour } from './tour/tour.js';
 import { startBlob } from './ui/blob.js';
 
 const boot = document.getElementById('boot');
@@ -30,6 +31,20 @@ const world = await createGlobe(app, {
 
 if (import.meta.env.DEV) window.__world = world;   // handle for debugging
 
+const tour = createTour({
+    world,
+    cinema,
+    countries: data.countries,
+    onStop: () => history.replaceState(null, '', location.pathname),
+});
+
+const playBtn = document.getElementById('tour-play');
+playBtn.hidden = false;
+playBtn.addEventListener('click', () => {
+    closeCountry();
+    tour.start();
+});
+
 function openCountry(country) {
     world.autoRotate(false);
     world.flyTo(country.lat, country.lng, 1.5, 1200);
@@ -52,9 +67,11 @@ addEventListener('keydown', e => {
     if (e.key === 'Escape' && strip.visible && !cinema.isOpen) closeCountry();
 });
 
-// deep link: ?country=ISL
-const wanted = new URLSearchParams(location.search).get('country');
+// deep links: ?country=ISL opens a country, ?tour=1 starts the tour
+const params = new URLSearchParams(location.search);
+const wanted = params.get('country');
 const found  = wanted && data.countries.find(c => c.iso === wanted.toUpperCase());
-if (found) openCountry(found);
+if (found)             openCountry(found);
+if (params.has('tour')) tour.start();
 
 boot.classList.add('gone');

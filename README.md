@@ -3,6 +3,10 @@
 An interactive 3D globe of photographs. Spin the world, open a country, and its photos
 play back like a film — full-bleed, Ken Burns drift, letterbox, hard cuts.
 
+Or hit **World tour** and the camera flies country to country on its own: arrive, name
+the place, play three shots, fly on. Escape stops it. Deep links: `?country=ISL`,
+`?tour=1`.
+
 Built with vanilla JS + [globe.gl](https://github.com/vasturiano/globe.gl) (Three.js).
 No framework.
 
@@ -48,6 +52,7 @@ gallery/            the original nature gallery, kept at /gallery
 src/globe/          globe, polygons, camera flights
 src/strip/          the drag-scroll photo strip
 src/cinema/         the full-screen cinematic viewer
+src/tour/           the automated world tour
 src/ui/             cursor blob
 scripts/fetch.js    Unsplash fetch + photos.json build
 scripts/curate.js   local contact sheet for picking photos

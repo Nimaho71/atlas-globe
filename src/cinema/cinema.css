@@ -259,3 +259,8 @@
 #card-credit a:hover { color: #fff; border-bottom-color: #fff; }
 
 .titles-in #card-credit { animation: title-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.82s forwards; }
+
+/* ─── auto mode: the tour drives playback, so no controls ────────────────── */
+
+#card-overlay.auto .card-nav,
+#card-overlay.auto #card-close { display: none; }

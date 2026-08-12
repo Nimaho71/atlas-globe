@@ -43,13 +43,48 @@ export function createCinema({ onOpen, onClose } = {}) {
     let isOpen    = false;
     let originEl  = null;   // element we unfolded from, to fold back into
     let idleTimer = null;
+    let autoTimer = null;   // set while the tour is driving playback
+    let autoEnd   = null;   // resolve fn for playAll()
 
     // clip-path matching an element's position on screen
     const insetFor = r =>
         `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 4px)`;
 
-    function open(list, startIdx = 0, sourceEl = null) {
+    /**
+     * Play a list of photos hands-free, one shot every `shotMs`.
+     * Resolves when the last shot has had its time — or immediately if the
+     * viewer is closed part-way through (the tour treats that as "stop").
+     */
+    function playAll(list, { shotMs = 4000 } = {}) {
+        return new Promise(resolve => {
+            if (!list?.length) return resolve();
+            autoEnd = resolve;
+            open(list, 0, null, { auto: true });
+            queueShot(shotMs);
+        });
+    }
+
+    function queueShot(shotMs) {
+        clearTimeout(autoTimer);
+        autoTimer = setTimeout(() => {
+            if (!isOpen) return;
+            if (idx >= photos.length - 1) return finishAuto();
+            go(1);
+            queueShot(shotMs);
+        }, shotMs);
+    }
+
+    function finishAuto() {
+        clearTimeout(autoTimer);
+        autoTimer = null;
+        const done = autoEnd;
+        autoEnd = null;
+        done?.();
+    }
+
+    function open(list, startIdx = 0, sourceEl = null, { auto = false } = {}) {
         if (!list?.length) return;
+        overlay.classList.toggle('auto', auto);
         photos   = list;
         idx      = startIdx;
         originEl = sourceEl;
@@ -58,12 +93,16 @@ export function createCinema({ onOpen, onClose } = {}) {
         document.addEventListener('keydown', onKey);
         render(true);
 
-        const rect = sourceEl?.getBoundingClientRect();
-        frame.animate(
-            [{ clipPath: rect ? insetFor(rect) : 'inset(50% 50% 50% 50% round 4px)' },
-             { clipPath: 'inset(0px 0px 0px 0px round 0px)' }],
-            { duration: 950, easing: OPEN_EASE, fill: 'both' }
-        );
+        // The tour dissolves between globe and photos; only a click on a
+        // thumbnail unfolds from the thumbnail itself.
+        if (!auto) {
+            const rect = sourceEl?.getBoundingClientRect();
+            frame.animate(
+                [{ clipPath: rect ? insetFor(rect) : 'inset(50% 50% 50% 50% round 4px)' },
+                 { clipPath: 'inset(0px 0px 0px 0px round 0px)' }],
+                { duration: 950, easing: OPEN_EASE, fill: 'both' }
+            );
+        }
         armIdle();
         onOpen?.();
     }
@@ -73,7 +112,15 @@ export function createCinema({ onOpen, onClose } = {}) {
         isOpen = false;
         document.removeEventListener('keydown', onKey);
         clearTimeout(idleTimer);
+        finishAuto();
         overlay.classList.remove('idle', 'titles-in');
+
+        if (overlay.classList.contains('auto')) {
+            overlay.classList.remove('open');
+            shot.className = '';
+            onClose?.();
+            return;
+        }
 
         const rect = originEl?.getBoundingClientRect();
         const back = frame.animate(
@@ -177,7 +224,7 @@ export function createCinema({ onOpen, onClose } = {}) {
     overlay.querySelector('#card-prev').addEventListener('click', () => go(-1));
     overlay.querySelector('#card-next').addEventListener('click', () => go(1));
 
-    return { open, close, go, get isOpen() { return isOpen; } };
+    return { open, close, go, playAll, get isOpen() { return isOpen; } };
 }
 
 // ─── helpers ─────────────────────────────────────────────────────────────────

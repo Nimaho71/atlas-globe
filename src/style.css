@@ -129,9 +129,14 @@ body.country-open .scene-tooltip { display: none; }
 }
 
 #back-link { bottom: 14px; left: 14px; }
-#hint      { bottom: 14px; pointer-events: none; right: 14px; }
+/* top-right: the bottom strip belongs to the tour button */
+#hint      { pointer-events: none; right: 14px; top: 14px; }
 
 body.country-open #hint { opacity: 0; }
+
+@media (max-width: 720px) {
+    #hint { display: none; }
+}
 
 /* ─── boot screen (shown until the globe chunk is ready) ─────────────────── */
 
