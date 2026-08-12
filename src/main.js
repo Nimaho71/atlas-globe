@@ -53,6 +53,27 @@ playBtn.addEventListener('click', () => {
     tour.start();
 });
 
+// A WebGL canvas can't be tabbed into, so the countries also exist as a real
+// list of buttons: off-screen until focused, then they fly the globe and open.
+function buildCountryNav() {
+    const nav = document.getElementById('country-nav');
+    for (const country of [...data.countries].sort((a, b) => a.name.localeCompare(b.name))) {
+        const btn = document.createElement('button');
+        btn.textContent = `${country.name} — ${country.photos.length} photos`;
+        btn.addEventListener('focus', () => {
+            world.spotlight(country.iso);
+            world.flyTo(country.lat, country.lng, 1.8, 700);
+        });
+        btn.addEventListener('blur', () => world.spotlight(null));
+        btn.addEventListener('click', () => {
+            world.spotlight(null);
+            openCountry(country);
+        });
+        nav.appendChild(btn);
+    }
+}
+buildCountryNav();
+
 function openCountry(country) {
     world.autoRotate(false);
     world.flyTo(country.lat, country.lng, 1.5, 1200);

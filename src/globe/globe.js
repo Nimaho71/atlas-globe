@@ -53,7 +53,11 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         .pointLabel(label)
         .onPointClick(c => onCountryClick?.(c));
 
-    globe.controls().autoRotate = true;
+    // Someone who asked the system for less motion doesn't want a globe that
+    // spins on its own or swoops between countries.
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    globe.controls().autoRotate = !calm;
     globe.controls().autoRotateSpeed = 0.35;
     globe.controls().minDistance = 160;
     globe.controls().maxDistance = 620;
@@ -104,9 +108,9 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
 
     // ─── camera ──────────────────────────────────────────────────────────────
     const flyTo = (lat, lng, altitude = 1.4, ms = 1200) =>
-        globe.pointOfView({ lat, lng, altitude }, ms);
+        globe.pointOfView({ lat, lng, altitude }, calm ? 0 : ms);
 
-    const home = (ms = 1200) => globe.pointOfView({ altitude: 2.5 }, ms);
+    const home = (ms = 1200) => globe.pointOfView({ altitude: 2.5 }, calm ? 0 : ms);
 
     // don't render what nobody can see
     let paused = false;
@@ -126,7 +130,7 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         flyTo,
         home,
         setPaused,
-        autoRotate: on => { globe.controls().autoRotate = on; },
+        autoRotate: on => { globe.controls().autoRotate = on && !calm; },
         /** Light up one country — the tour uses this to show where it's heading. */
         spotlight: isoCode => { spotlight = isoCode; repaint(); },
     };
