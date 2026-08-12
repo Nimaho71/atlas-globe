@@ -23,9 +23,26 @@ const strip = createStrip({
     onPhotoClick: (photos, i, el) => cinema.open(photos, i, el),
 });
 
+const params = new URLSearchParams(location.search);
+
 const world = await createGlobe(app, {
     countries: data.countries,
     onCountryClick: country => openCountry(country),
+    style: params.get('style') || 'graphic',
+});
+
+if (import.meta.env.DEV) window.__world = world;   // handle for debugging
+
+// Style switcher — temporary, for choosing the look. Remove once decided.
+const switcher = document.getElementById('style-switch');
+switcher.hidden = false;
+switcher.querySelectorAll('button').forEach(btn => {
+    btn.classList.toggle('on', btn.dataset.style === world.style);
+    btn.addEventListener('click', () => {
+        world.applyStyle(btn.dataset.style);
+        switcher.querySelectorAll('button').forEach(b =>
+            b.classList.toggle('on', b === btn));
+    });
 });
 
 function openCountry(country) {
