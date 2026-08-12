@@ -45,8 +45,9 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
         for (const [i, country] of order.entries()) {
             if (token !== mine) return;
 
-            // 1 — light the destination up, then fly to it
+            // 1 — light the destination up, draw the leg, then fly it
             world.spotlight(country.iso);
+            if (i > 0) world.addLeg(order[i - 1], country, FLY_MS);
             world.flyTo(country.lat, country.lng, 1.7, FLY_MS);
             await wait(FLY_MS * 0.75);
             if (token !== mine) return;
@@ -80,6 +81,7 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
         hideCard();
         document.body.classList.remove('touring');
         world.spotlight(null);
+        world.clearLegs();
         cinema.close();
         world.home(1400);
         world.autoRotate(true);

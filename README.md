@@ -10,11 +10,13 @@ the place, play three shots, fly on. Escape stops it. Deep links: `?country=ISL`
 Built with vanilla JS + [globe.gl](https://github.com/vasturiano/globe.gl) (Three.js).
 No framework.
 
-Hovering a country names it; the tour lights the next country up before flying to it.
+Hovering a country names it; the tour lights the next country up before flying to it and
+draws the leg it just flew, so the route accumulates across the globe as it runs.
+Press `/` to search — small countries are hard to click, and the field doubles as the
+keyboard route in (arrows walk the results, Enter opens).
 Every photographer is credited at [/credits](credits/), generated from the same data the
-globe reads. Countries are also a real list of buttons, off-screen until focused, so the
-globe is reachable without a mouse — and `prefers-reduced-motion` turns off the
-auto-spin, the camera swoops and the Ken Burns drift.
+globe reads. `prefers-reduced-motion` turns off the auto-spin, the camera swoops, the
+dashed arcs and the Ken Burns drift.
 
 See [PLAN.md](PLAN.md) for the full design, photo-sourcing decisions and roadmap.
 
@@ -60,6 +62,7 @@ src/globe/          globe, polygons, camera flights
 src/strip/          the drag-scroll photo strip
 src/cinema/         the full-screen cinematic viewer
 src/tour/           the automated world tour
+src/search/         country search / keyboard route in
 src/ui/             cursor blob
 scripts/fetch.js    Unsplash fetch + photos.json build
 scripts/curate.js   local contact sheet for picking photos

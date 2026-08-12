@@ -17,6 +17,8 @@ const PALETTE = {
     hover:         'rgba(139, 215, 95, 0.62)',
     spotlight:     'rgba(180, 255, 130, 0.85)',
     spotlightEdge: 'rgba(220, 255, 190, 1)',
+    arcFrom:       'rgba(139, 215, 95, 0)',
+    arcTo:         'rgba(180, 255, 150, 0.9)',
     land:        'rgba(255, 255, 255, 0.07)',
     landEdge:    'rgba(255, 255, 255, 0.15)',
     ocean:       '#05080d',
@@ -51,7 +53,18 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         .pointRadius(c => 0.28 + Math.min(c.photos.length, 12) * 0.035)
         .pointsMerge(false)
         .pointLabel(label)
-        .onPointClick(c => onCountryClick?.(c));
+        .onPointClick(c => onCountryClick?.(c))
+        // the tour's flight path, drawn behind the camera as it travels
+        .arcStartLat('fromLat').arcStartLng('fromLng')
+        .arcEndLat('toLat').arcEndLng('toLng')
+        .arcColor(() => [PALETTE.arcFrom, PALETTE.arcTo])
+        .arcStroke(0.55)
+        // enough lift that a leg reads as a flight rather than a line on a map
+        .arcAltitudeAutoScale(0.62)
+        .arcDashLength(0.55)
+        .arcDashGap(0.25)
+        .arcDashInitialGap(1)
+        .arcsTransitionDuration(0);
 
     // Someone who asked the system for less motion doesn't want a globe that
     // spins on its own or swoops between countries.
@@ -67,6 +80,7 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
 
     let hovered   = null;
     let spotlight = null;   // ISO the tour is flying to
+    let legs      = [];     // flight path accumulated during a tour
 
     const capColor = f =>
         f.properties.iso === spotlight        ? PALETTE.spotlight
@@ -133,6 +147,23 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         autoRotate: on => { globe.controls().autoRotate = on && !calm; },
         /** Light up one country — the tour uses this to show where it's heading. */
         spotlight: isoCode => { spotlight = isoCode; repaint(); },
+
+        /**
+         * Draw the leg the camera is about to fly. `ms` matches the flight so the
+         * dash arrives roughly when the camera does; the arc then stays as a
+         * record of where the tour has been.
+         */
+        addLeg(from, to, ms = 1600) {
+            legs = [...legs, {
+                fromLat: from.lat, fromLng: from.lng,
+                toLat:   to.lat,   toLng:   to.lng,
+            }];
+            globe.arcDashAnimateTime(calm ? 0 : ms).arcsData(legs);
+        },
+        clearLegs() {
+            legs = [];
+            globe.arcsData(legs);
+        },
     };
 }
 

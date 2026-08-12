@@ -1,0 +1,84 @@
+#search {
+    left: 50%;
+    position: fixed;
+    /* clears the masthead (title + subtitle) rather than sitting on top of it */
+    top: calc(4vh + 7rem);
+    transform: translateX(-50%);
+    transition: opacity 400ms ease;
+    width: min(320px, 76vw);
+    z-index: 600;
+}
+
+#search-input {
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    outline: none;
+    padding: 10px 16px;
+    text-align: center;
+    transition: background 300ms, border-color 300ms, text-align 0s;
+    width: 100%;
+}
+
+#search-input::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+#search-input:hover { border-color: rgba(255, 255, 255, 0.3); }
+
+#search-input:focus {
+    background: rgba(4, 7, 11, 0.9);
+    border-color: var(--green);
+    text-align: left;
+}
+
+#search-results {
+    background: rgba(4, 7, 11, 0.94);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(139, 215, 95, 0.3);
+    border-radius: 10px;
+    display: none;
+    list-style: none;
+    margin: 6px 0 0;
+    overflow: hidden;
+    padding: 4px;
+}
+
+#search.open #search-results { display: block; }
+
+#search-results li {
+    align-items: center;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    justify-content: space-between;
+    padding: 8px 12px;
+}
+
+#search-results li.active,
+#search-results li:hover {
+    background: rgba(139, 215, 95, 0.16);
+    color: #fff;
+}
+
+#search-results em {
+    color: var(--green);
+    font-size: 0.66rem;
+    font-style: normal;
+    opacity: 0.8;
+}
+
+/* out of the way whenever the globe isn't the subject */
+body.country-open #search,
+body.touring #search { opacity: 0; pointer-events: none; }
+
+@media (max-width: 720px) {
+    /* the masthead is smaller on a phone, so the field can sit higher */
+    #search { top: calc(4vh + 5.4rem); }
+}

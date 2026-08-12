@@ -2,6 +2,7 @@ import './style.css';
 import { createCinema } from './cinema/cinema.js';
 import { createStrip } from './strip/strip.js';
 import { createTour } from './tour/tour.js';
+import { createSearch } from './search/search.js';
 import { startBlob } from './ui/blob.js';
 
 const boot = document.getElementById('boot');
@@ -53,28 +54,20 @@ playBtn.addEventListener('click', () => {
     tour.start();
 });
 
-// A WebGL canvas can't be tabbed into, so the countries also exist as a real
-// list of buttons: off-screen until focused, then they fly the globe and open.
-function buildCountryNav() {
-    const nav = document.getElementById('country-nav');
-    for (const country of [...data.countries].sort((a, b) => a.name.localeCompare(b.name))) {
-        const btn = document.createElement('button');
-        btn.textContent = `${country.name} — ${country.photos.length} photos`;
-        btn.addEventListener('focus', () => {
-            world.spotlight(country.iso);
-            world.flyTo(country.lat, country.lng, 1.8, 700);
-        });
-        btn.addEventListener('blur', () => world.spotlight(null));
-        btn.addEventListener('click', () => {
-            world.spotlight(null);
-            openCountry(country);
-        });
-        nav.appendChild(btn);
-    }
-}
-buildCountryNav();
+// A WebGL canvas can't be tabbed into, so search doubles as the keyboard route
+// in: Tab reaches the field, arrows walk the results, Enter opens.
+const search = createSearch({
+    countries: data.countries,
+    onPick: country => openCountry(country),
+    onPreview: country => {
+        world.spotlight(country?.iso ?? null);
+        if (country) world.flyTo(country.lat, country.lng, 1.8, 700);
+    },
+});
+document.body.appendChild(search.root);
 
 function openCountry(country) {
+    search.close();
     world.autoRotate(false);
     world.flyTo(country.lat, country.lng, 1.5, 1200);
     document.body.classList.add('country-open');
