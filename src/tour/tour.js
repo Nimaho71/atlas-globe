@@ -59,9 +59,8 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
             if (token !== mine) return;
 
             // 3 — the shots
-            const shots = country.photos.slice(0, SHOTS);
             preload(order[i + 1]);
-            await cinema.playAll(shots, { shotMs: SHOT_MS });
+            await cinema.playAll(country.shots, { shotMs: SHOT_MS });
             world.spotlight(null);
             if (token !== mine) return;
 
@@ -108,6 +107,10 @@ export function createTour({ world, cinema, countries, onStart, onStop }) {
 /**
  * Shuffle, then avoid back-to-back neighbours: the flight between countries is
  * the spectacle, and Norway → Sweden is a boring flight.
+ *
+ * Each country also gets its own random handful of shots, drawn from everything
+ * curated for it — countries carry up to a dozen photos, so always taking the
+ * first three would mean most of them never appear.
  */
 function route(countries) {
     const pool = [...countries].sort(() => Math.random() - 0.5);
@@ -123,7 +126,17 @@ function route(countries) {
         const pick = far[Math.floor(Math.random() * far.length)];
         out.push(pool.splice(pick.i, 1)[0]);
     }
-    return out;
+    return out.map(c => ({ ...c, shots: sample(c.photos, SHOTS) }));
+}
+
+/** n random items, order shuffled too, without disturbing the source array. */
+function sample(items, n) {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, n);
 }
 
 /** Great-circle distance in km. */
@@ -140,11 +153,12 @@ function distance(a, b) {
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
-// exactly one country ahead, never the whole route
+// exactly one country ahead, never the whole route — and only the shots that
+// country is actually going to show
 const seen = new Set();
 function preload(country) {
     if (!country) return;
-    for (const p of country.photos.slice(0, SHOTS)) {
+    for (const p of country.shots ?? []) {
         if (seen.has(p.id)) continue;
         seen.add(p.id);
         const img = new Image();
