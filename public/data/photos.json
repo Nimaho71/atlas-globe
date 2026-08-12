@@ -88,8 +88,8 @@
   {
    "iso": "NOR",
    "name": "Norway",
-   "lat": 66.648,
-   "lng": 12.829,
+   "lat": 64.086,
+   "lng": 12.368,
    "photos": [
     {
      "id": "unsplash-0962p7mcux4",
@@ -503,8 +503,8 @@
   {
    "iso": "FRA",
    "name": "France",
-   "lat": 43.14,
-   "lng": -6.802,
+   "lat": 46.559,
+   "lng": 2.349,
    "photos": [
     {
      "id": "unsplash-x5Ajq_a_0BQ",
@@ -1665,8 +1665,8 @@
   {
    "iso": "JPN",
    "name": "Japan",
-   "lat": 37.537,
-   "lng": 137.712,
+   "lat": 36.008,
+   "lng": 136.713,
    "photos": [
     {
      "id": "unsplash-Y0A9rXbn4x0",
@@ -2163,8 +2163,8 @@
   {
    "iso": "IDN",
    "name": "Indonesia",
-   "lat": -2.272,
-   "lng": 117.365,
+   "lat": -0.255,
+   "lng": 114.022,
    "photos": [
     {
      "id": "unsplash-PgM1w6gHq3M",
@@ -2246,8 +2246,8 @@
   {
    "iso": "PHL",
    "name": "Philippines",
-   "lat": 11.72,
-   "lng": 122.938,
+   "lat": 15.742,
+   "lng": 121.55,
    "photos": [
     {
      "id": "unsplash-9ZXHUr5aCwM",
