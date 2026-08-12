@@ -10,6 +10,12 @@ the place, play three shots, fly on. Escape stops it. Deep links: `?country=ISL`
 Built with vanilla JS + [globe.gl](https://github.com/vasturiano/globe.gl) (Three.js).
 No framework.
 
+Hovering a country names it; the tour lights the next country up before flying to it.
+Every photographer is credited at [/credits](credits/), generated from the same data the
+globe reads. Countries are also a real list of buttons, off-screen until focused, so the
+globe is reachable without a mouse — and `prefers-reduced-motion` turns off the
+auto-spin, the camera swoops and the Ken Burns drift.
+
 See [PLAN.md](PLAN.md) for the full design, photo-sourcing decisions and roadmap.
 
 ## Run locally
@@ -48,6 +54,7 @@ Country shapes are Natural Earth 110m via
 
 ```
 index.html          globe page
+credits/            photographer credits, built from photos.json
 gallery/            the original nature gallery, kept at /gallery
 src/globe/          globe, polygons, camera flights
 src/strip/          the drag-scroll photo strip
