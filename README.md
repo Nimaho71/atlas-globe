@@ -19,8 +19,9 @@ npm run dev
 | --- | --- |
 | `npm run dev` | Vite dev server |
 | `npm run build` | Static build into `dist/` |
-| `npm run seed` | Regenerates the **placeholder** `photos.json` + country centroids |
-| `npm run fetch` | *(Phase 1)* Pulls real photos from Unsplash into `photos.json` |
+| `npm run fetch -- --candidates` | Pulls ~18 Unsplash candidates per country into `candidates.json` |
+| `npm run curate` | Contact sheet at :4321 — click to pick keepers, writes them to the config |
+| `npm run fetch` | Builds `photos.json` from the curated picks (top 5 if none curated) |
 
 ## Data
 
@@ -29,8 +30,12 @@ at runtime. That file is generated once on a developer machine and committed —
 photo set is fixed, there's no API key in the browser, and no rate limits apply to
 visitors.
 
-**`photos.json` is currently placeholder data** (nature-gallery images spread across ten
-countries; they are not pictures of those countries). It gets replaced in Phase 1.
+`photos.json` holds 40 countries x 5 photos from Unsplash. Every photo carries the
+photographer name and a profile link with the UTM parameters Unsplash requires — the
+build refuses to write a photo without attribution.
+
+The API key lives in `.env` (git-ignored) and is only read by the scripts. Responses are
+cached in `.cache/` so re-running costs no requests against the 50/hour demo limit.
 
 Country shapes are Natural Earth 110m via
 [world-atlas](https://github.com/topojson/world-atlas), committed to `public/data/`.
@@ -44,7 +49,8 @@ src/globe/          globe, polygons, camera flights
 src/strip/          the drag-scroll photo strip
 src/cinema/         the full-screen cinematic viewer
 src/ui/             cursor blob
-scripts/seed.js     placeholder data generator
+scripts/fetch.js    Unsplash fetch + photos.json build
+scripts/curate.js   local contact sheet for picking photos
 ```
 
 ## Deploy

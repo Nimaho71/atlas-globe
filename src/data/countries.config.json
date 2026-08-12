@@ -1,0 +1,162 @@
+{
+  "ISL": {
+    "query": "Iceland landscape waterfall",
+    "keep": []
+  },
+  "NOR": {
+    "query": "Norway fjord mountains",
+    "keep": []
+  },
+  "SWE": {
+    "query": "Sweden forest lake",
+    "keep": []
+  },
+  "FIN": {
+    "query": "Finland lapland winter",
+    "keep": []
+  },
+  "GBR": {
+    "query": "Scotland highlands coast",
+    "keep": []
+  },
+  "IRL": {
+    "query": "Ireland cliffs green",
+    "keep": []
+  },
+  "FRA": {
+    "query": "France landscape mountains",
+    "keep": []
+  },
+  "ESP": {
+    "query": "Spain andalusia architecture",
+    "keep": []
+  },
+  "PRT": {
+    "query": "Portugal coast lisbon",
+    "keep": []
+  },
+  "ITA": {
+    "query": "Italy dolomites tuscany",
+    "keep": []
+  },
+  "CHE": {
+    "query": "Switzerland alps village",
+    "keep": []
+  },
+  "HRV": {
+    "query": "Croatia coast adriatic",
+    "keep": []
+  },
+  "GRC": {
+    "query": "Greece santorini islands",
+    "keep": []
+  },
+  "TUR": {
+    "query": "Turkey cappadocia landscape",
+    "keep": []
+  },
+  "MAR": {
+    "query": "Morocco desert medina",
+    "keep": []
+  },
+  "EGY": {
+    "query": "Egypt desert nile",
+    "keep": []
+  },
+  "KEN": {
+    "query": "Kenya savanna wildlife",
+    "keep": []
+  },
+  "TZA": {
+    "query": "Tanzania serengeti kilimanjaro",
+    "keep": []
+  },
+  "NAM": {
+    "query": "Namibia desert dunes",
+    "keep": []
+  },
+  "ZAF": {
+    "query": "South Africa cape town landscape",
+    "keep": []
+  },
+  "JPN": {
+    "query": "Japan mount fuji temple",
+    "keep": []
+  },
+  "CHN": {
+    "query": "China mountains guilin",
+    "keep": []
+  },
+  "NPL": {
+    "query": "Nepal himalaya mountains",
+    "keep": []
+  },
+  "IND": {
+    "query": "India architecture landscape",
+    "keep": []
+  },
+  "THA": {
+    "query": "Thailand islands temple",
+    "keep": []
+  },
+  "VNM": {
+    "query": "Vietnam landscape",
+    "keep": []
+  },
+  "IDN": {
+    "query": "Indonesia bali volcano",
+    "keep": []
+  },
+  "PHL": {
+    "query": "Philippines islands beach",
+    "keep": []
+  },
+  "ARE": {
+    "query": "Dubai skyline desert",
+    "keep": []
+  },
+  "JOR": {
+    "query": "Jordan petra desert",
+    "keep": []
+  },
+  "USA": {
+    "query": "United States national park landscape",
+    "keep": []
+  },
+  "CAN": {
+    "query": "Canada rockies lake",
+    "keep": []
+  },
+  "MEX": {
+    "query": "Mexico beach ruins",
+    "keep": []
+  },
+  "CRI": {
+    "query": "Costa Rica landscape",
+    "keep": []
+  },
+  "PER": {
+    "query": "Peru andes machu picchu",
+    "keep": []
+  },
+  "BRA": {
+    "query": "Brazil rio landscape",
+    "keep": []
+  },
+  "CHL": {
+    "query": "Chile patagonia torres",
+    "keep": []
+  },
+  "ARG": {
+    "query": "Argentina patagonia glacier",
+    "keep": []
+  },
+  "AUS": {
+    "query": "Australia landscape coast",
+    "keep": []
+  },
+  "NZL": {
+    "query": "New Zealand mountains lake",
+    "keep": []
+  }
+}

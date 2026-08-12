@@ -130,7 +130,9 @@ export function createCinema({ onOpen, onClose } = {}) {
             }, 280);
         }
 
-        elTitle.textContent = p.title || '';
+        // The place is the title card — stock photo descriptions ramble, and a
+        // film slate wants the location, not a caption.
+        elTitle.textContent = p.place || p.title || '';
         elCount.textContent = `SHOT ${String(idx + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
         elCredit.innerHTML  = creditHTML(p);
         preload(photos[(idx + 1) % photos.length]);
@@ -201,7 +203,7 @@ function creditHTML(p) {
     const who = c.link
         ? `<a href="${c.link}" target="_blank" rel="noopener">${escapeHTML(c.name)}</a>`
         : escapeHTML(c.name);
-    const where = p.source ? ` / ${escapeHTML(p.source)}` : '';
+    const where = p.licence ? ` / ${escapeHTML(p.licence)}` : '';
     return `Photo by ${who}${where}`;
 }
 

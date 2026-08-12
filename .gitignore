@@ -10,3 +10,6 @@ dist/
 # API keys
 .env
 .env.local
+
+# unsplash response cache
+.cache/

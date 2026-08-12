@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "fetch": "node scripts/fetch.js",
-    "curate": "node scripts/curate.js",
-    "seed": "node scripts/seed.js"
+    "fetch": "node --env-file-if-exists=.env scripts/fetch.js",
+    "curate": "node --env-file-if-exists=.env scripts/curate.js",
+    "centroids": "node scripts/centroids.js"
   },
   "devDependencies": {
     "d3-geo": "^3.1.1",
