@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-12",
+ "generated": "2026-08-13",
  "source": "unsplash",
  "countries": [
   {
@@ -21,7 +21,9 @@
       "name": "Robert Lukeman",
       "link": "https://unsplash.com/@robertlukeman?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Seljalandsfoss Waterfall, Iceland",
+     "lat": 63.6155,
+     "lng": -19.9901
     },
     {
      "id": "unsplash-dh8ONmfQyQQ",
@@ -36,7 +38,7 @@
       "name": "Andrey Andreyev",
       "link": "https://unsplash.com/@ludenus?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Seljalandsfoss, Iceland"
     },
     {
      "id": "unsplash-54Pfu4EK4pc",
@@ -51,7 +53,9 @@
       "name": "Lukas Tennie",
       "link": "https://unsplash.com/@luk10?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Skógafoss, Iceland",
+     "lat": 63.5321,
+     "lng": -19.5114
     },
     {
      "id": "unsplash-e56x9U4SaJs",
@@ -81,7 +85,9 @@
       "name": "Alessio Zappatore",
       "link": "https://unsplash.com/@aliosha78?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Iceland",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-IlvY3z4KVCI",
@@ -96,7 +102,9 @@
       "name": "Joshua Sortino",
       "link": "https://unsplash.com/@sortino?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Seljalandsfoss, Iceland",
+     "lat": 63.6156,
+     "lng": -19.9886
     },
     {
      "id": "unsplash-vKzQ2B-yquw",
@@ -111,7 +119,9 @@
       "name": "Spenser Sembrat",
       "link": "https://unsplash.com/@spensersembrat?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Iceland",
+     "lat": 64.9631,
+     "lng": -19.0208
     },
     {
      "id": "unsplash-V-MASKSq4vI",
@@ -126,7 +136,9 @@
       "name": "Federica Galli",
       "link": "https://unsplash.com/@fedechanw?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Iceland"
+     "place": "Iceland",
+     "lat": 65,
+     "lng": -18
     },
     {
      "id": "unsplash-rEGEeXPQ1FU",
@@ -164,7 +176,7 @@
       "name": "Michael Fousert",
       "link": "https://unsplash.com/@michaelfousert?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Mostraumen, Norway"
     },
     {
      "id": "unsplash-d5pdKwxMjhE",
@@ -179,7 +191,9 @@
       "name": "Johny Goerend",
       "link": "https://unsplash.com/@johnygoerend?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Lofoten, Norway",
+     "lat": 67.9931,
+     "lng": 13.6397
     },
     {
      "id": "unsplash-Rw2Ed4_UNis",
@@ -194,7 +208,9 @@
       "name": "Saad Chaudhry",
       "link": "https://unsplash.com/@saadchdhry?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Lofoten, Norway",
+     "lat": 67.9931,
+     "lng": 13.6397
     },
     {
      "id": "unsplash-WBF4seWvCBw",
@@ -209,7 +225,9 @@
       "name": "James Armes",
       "link": "https://unsplash.com/@norfolkboy14?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Norwegian Fjords, Norway",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-HRLYGdjHIbI",
@@ -224,7 +242,7 @@
       "name": "Jessica Pamp",
       "link": "https://unsplash.com/@yessijes?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Reine, Norway"
     },
     {
      "id": "unsplash-My8MPXtu3Zc",
@@ -239,7 +257,9 @@
       "name": "Vidar Nordli-Mathisen",
       "link": "https://unsplash.com/@vidarnm?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Reine, Norway",
+     "lat": 67.9324,
+     "lng": 13.0887
     },
     {
      "id": "unsplash-9vRhXHsdW1Y",
@@ -269,7 +289,9 @@
       "name": "Phil Mono",
       "link": "https://unsplash.com/@philmono?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Fjord, Norway",
+     "lat": 62.3009,
+     "lng": 7.3947
     },
     {
      "id": "unsplash-cpZFCsTD5PY",
@@ -284,7 +306,9 @@
       "name": "James Armes",
       "link": "https://unsplash.com/@norfolkboy14?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Norway"
+     "place": "Norwegian Fjords, Norway",
+     "lat": 0,
+     "lng": 0
     }
    ]
   },
@@ -307,7 +331,9 @@
       "name": "Peter van der Meulen",
       "link": "https://unsplash.com/@hendrikpeter?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sundsvall, Sweden",
+     "lat": 62.3908,
+     "lng": 17.3069
     },
     {
      "id": "unsplash-NdzwkPV_8V4",
@@ -322,7 +348,9 @@
       "name": "Peter van der Meulen",
       "link": "https://unsplash.com/@hendrikpeter?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sundsvall, Sweden",
+     "lat": 62.3908,
+     "lng": 17.3069
     },
     {
      "id": "unsplash-iIfnMHyUOhE",
@@ -337,7 +365,9 @@
       "name": "Patrick Federi",
       "link": "https://unsplash.com/@federi?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "SJÖLUNDA, Sweden",
+     "lat": 58.6833,
+     "lng": 13.2003
     },
     {
      "id": "unsplash-2RNDzOFDtoA",
@@ -352,7 +382,9 @@
       "name": "Nicola Richli",
       "link": "https://unsplash.com/@nicolarichli?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sweden",
+     "lat": 60.1282,
+     "lng": 18.6435
     },
     {
      "id": "unsplash-_cfhA3OqV0E",
@@ -367,7 +399,9 @@
       "name": "Axel Josefsson",
       "link": "https://unsplash.com/@aejosefsson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Umeå, Sweden",
+     "lat": 63.8258,
+     "lng": 20.263
     },
     {
      "id": "unsplash-K8wU0b5iFyk",
@@ -382,7 +416,9 @@
       "name": "Leandra Rieger",
       "link": "https://unsplash.com/@leandrarieger?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sweden",
+     "lat": 60.1282,
+     "lng": 18.6435
     },
     {
      "id": "unsplash-4_SuHNeIhAY",
@@ -412,7 +448,9 @@
       "name": "Lukas Kienzler",
       "link": "https://unsplash.com/@beamehr?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sweden",
+     "lat": 60.1282,
+     "lng": 18.6435
     },
     {
      "id": "unsplash-OjZMqeIZldw",
@@ -427,7 +465,9 @@
       "name": "Lukas Kienzler",
       "link": "https://unsplash.com/@beamehr?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Sweden"
+     "place": "Sweden",
+     "lat": 60.1282,
+     "lng": 18.6435
     }
    ]
   },
@@ -450,7 +490,7 @@
       "name": "Joakim Honkasalo",
       "link": "https://unsplash.com/@jhonkasalo?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Levi, Finland"
     },
     {
      "id": "unsplash-IPSB5Jcft-A",
@@ -480,7 +520,9 @@
       "name": "Ethan Hu",
       "link": "https://unsplash.com/@ethanhjy?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Lapland, Finland",
+     "lat": 67.9222,
+     "lng": 26.5046
     },
     {
      "id": "unsplash-_ZJAUW4M94c",
@@ -495,7 +537,9 @@
       "name": "Markus Wagner",
       "link": "https://unsplash.com/@omena_kolme?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Kotamaja, Finland",
+     "lat": 67.6587,
+     "lng": 24.2534
     },
     {
      "id": "unsplash-lJU04IpuLc4",
@@ -510,7 +554,7 @@
       "name": "Leo Mengoli",
       "link": "https://unsplash.com/@kaamos_?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Training Dogsledding, Finland"
     },
     {
      "id": "unsplash-XdILZ_Y2JrA",
@@ -525,7 +569,9 @@
       "name": "Colin White",
       "link": "https://unsplash.com/@ctw71?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Kittilä, Finland",
+     "lat": 67.6507,
+     "lng": 24.9158
     },
     {
      "id": "unsplash-MYJVaCl6M4M",
@@ -540,7 +586,9 @@
       "name": "Datingscout",
       "link": "https://unsplash.com/@datingscout?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Lapland, Finland",
+     "lat": 67.9222,
+     "lng": 26.5046
     },
     {
      "id": "unsplash-OpzGtC3xhF4",
@@ -555,7 +603,9 @@
       "name": "Mayur Arvind",
       "link": "https://unsplash.com/@mayurarvind?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Inari, Finland",
+     "lat": 68.9062,
+     "lng": 27.0278
     },
     {
      "id": "unsplash-0mwY3QTQSSA",
@@ -570,7 +620,9 @@
       "name": "Jaakko Kemppainen",
       "link": "https://unsplash.com/@jaakkok?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Saariselkä, Finland",
+     "lat": 68.4197,
+     "lng": 27.41
     },
     {
      "id": "unsplash-JGIg4PwTqKU",
@@ -585,7 +637,9 @@
       "name": "Jaakko Kemppainen",
       "link": "https://unsplash.com/@jaakkok?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Finland"
+     "place": "Saariselkä, Finland",
+     "lat": 68.4197,
+     "lng": 27.41
     }
    ]
   },
@@ -623,7 +677,9 @@
       "name": "Anna Glover",
       "link": "https://unsplash.com/@byanna?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Wick, United Kingdom",
+     "lat": 58.4914,
+     "lng": -3.2143
     },
     {
      "id": "unsplash-hFMVWIpDom8",
@@ -638,7 +694,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Isle of Harris, United Kingdom",
+     "lat": 57.9933,
+     "lng": -6.8736
     },
     {
      "id": "unsplash-T7HrGjxZ5qQ",
@@ -653,7 +711,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "rannoch moor, United Kingdom",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-JXNLMKkCCdI",
@@ -668,7 +728,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Old Man of Storr, United Kingdom",
+     "lat": 57.5071,
+     "lng": -6.1831
     },
     {
      "id": "unsplash-hYznwIHykpA",
@@ -683,7 +745,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Isle of Skye, United Kingdom",
+     "lat": 57.2736,
+     "lng": -6.2155
     },
     {
      "id": "unsplash-5B0wBiV5REY",
@@ -698,7 +762,9 @@
       "name": "Johnny Briggs",
       "link": "https://unsplash.com/@johnnyboylee?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Isle of Skye, United Kingdom",
+     "lat": 57.2736,
+     "lng": -6.2155
     },
     {
      "id": "unsplash-yDhBLb7Xg_Y",
@@ -713,7 +779,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Torridon, United Kingdom",
+     "lat": 57.5469,
+     "lng": -5.5134
     },
     {
      "id": "unsplash-XHU5pI-giqw",
@@ -728,7 +796,9 @@
       "name": "Johnny Briggs",
       "link": "https://unsplash.com/@johnnyboylee?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Isle of Skye, United Kingdom",
+     "lat": 57.2736,
+     "lng": -6.2155
     },
     {
      "id": "unsplash-WqubEW5TnAY",
@@ -743,7 +813,9 @@
       "name": "martin bennie",
       "link": "https://unsplash.com/@martinbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "United Kingdom"
+     "place": "Skye, United Kingdom",
+     "lat": 57.2736,
+     "lng": -6.2155
     }
    ]
   },
@@ -766,7 +838,9 @@
       "name": "Sean Kuriyan",
       "link": "https://unsplash.com/@sean189?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Cliffs of Moher, Ireland",
+     "lat": 52.9715,
+     "lng": -9.4309
     },
     {
      "id": "unsplash-NUiQpGnj9rI",
@@ -781,7 +855,9 @@
       "name": "Vincent Guth",
       "link": "https://unsplash.com/@vingtcent?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Cliffs of Moher, Ireland",
+     "lat": 52.9715,
+     "lng": -9.4309
     },
     {
      "id": "unsplash-tfdG9vbKdzo",
@@ -796,7 +872,7 @@
       "name": "Sylvia Szekely",
       "link": "https://unsplash.com/@sylviacreate?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Rope Bridge, Ireland"
     },
     {
      "id": "unsplash-e0uGKNuDjkQ",
@@ -811,7 +887,9 @@
       "name": "Rory Hennessey",
       "link": "https://unsplash.com/@roryhennessey?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Mizen Head, Ireland",
+     "lat": 51.4571,
+     "lng": -9.8003
     },
     {
      "id": "unsplash-KsoXJryiTlI",
@@ -826,7 +904,7 @@
       "name": "Andrea Ferrario",
       "link": "https://unsplash.com/@andreaferrario?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Cliffs of Moher, Ireland"
     },
     {
      "id": "unsplash-FXu9VUQFVSY",

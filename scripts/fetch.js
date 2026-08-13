@@ -11,6 +11,7 @@ import { search } from './unsplash.js';
 
 const CONFIG     = 'src/data/countries.config.json';
 const CANDIDATES = 'src/data/candidates.json';
+const LOCATIONS  = 'src/data/locations.json';
 const OUT        = 'public/data/photos.json';
 const PER_COUNTRY = 5;
 
@@ -20,6 +21,7 @@ const mode  = args.includes('--candidates') ? 'candidates' : 'build';
 
 const config    = JSON.parse(readFileSync(CONFIG, 'utf8'));
 const centroids = JSON.parse(readFileSync('public/data/centroids.json', 'utf8'));
+const locations = existsSync(LOCATIONS) ? JSON.parse(readFileSync(LOCATIONS, 'utf8')) : {};
 
 const codes = Object.keys(config).filter(c => !only || only.includes(c));
 
@@ -81,7 +83,11 @@ async function build() {
             name: place.name,
             lat:  place.lat,
             lng:  place.lng,
-            photos: chosen.map(p => ({ ...strip(p), place: place.name })),
+            photos: chosen.map(p => ({
+                ...strip(p),
+                place: prettyPlace(locations[p.id], place.name),
+                ...coords(locations[p.id]),
+            })),
         });
     }
 
@@ -110,6 +116,42 @@ async function build() {
 function strip({ _thumb, _page, ...rest }) {
     return rest;
 }
+
+/**
+ * Turn Unsplash's location string into a caption.
+ *
+ * These are typed by the photographer and then geocoded, so they arrive long
+ * and in the uploader's own language: "Chureito Pagoda, ２丁目-4-1 Asama,
+ * Fujiyoshida, Prefettura di Yamanashi, Giappone". Keep the leading landmark
+ * and pair it with our own English country name, so captions read consistently
+ * whoever uploaded them. No location: fall back to the country.
+ */
+function prettyPlace(loc, countryName) {
+    if (!loc?.name) return countryName;
+
+    const parts = loc.name.split(',').map(s => s.trim()).filter(Boolean);
+    // skip street-ish leading fragments — "Unnamed Road", "2-4-1 Asama"
+    const vague = s => /unnamed|^\d|road$|street$|straße$/i.test(s);
+    const head  = parts.find(s => !vague(s)) ?? loc.city ?? parts[0];
+
+    if (!head) return countryName;
+    // "Iceland, Iceland" helps nobody
+    return head.toLowerCase() === countryName.toLowerCase()
+        ? countryName
+        : `${head}, ${countryName}`;
+}
+
+/**
+ * Keep coordinates only when they say something a country dot doesn't. Some
+ * uploaders just tag the country, which geocodes to its centre — a pin there
+ * claims precision the data hasn't got.
+ */
+function coords(loc) {
+    if (loc?.lat == null || loc?.lng == null) return {};
+    return { lat: round(loc.lat), lng: round(loc.lng) };
+}
+
+function round(n) { return Math.round(n * 1e4) / 1e4; }
 
 function value(flag) {
     const i = args.indexOf(flag);
