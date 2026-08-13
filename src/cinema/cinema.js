@@ -188,6 +188,7 @@ export function createCinema({ onOpen, onClose } = {}) {
         elTitle.textContent = p.place || p.title || '';
         elCount.textContent = `SHOT ${String(idx + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
         elCredit.innerHTML  = creditHTML(p);
+        trackUse(p);
         preload(photos[(idx + 1) % photos.length]);
     }
 
@@ -249,6 +250,10 @@ export function sized(photo, w) {
     return u.toString();
 }
 
+// Unsplash's API terms require the photographer's full name AND Unsplash itself
+// to be attributed and linked, with referral parameters on both.
+const UNSPLASH_HOME = 'https://unsplash.com/?utm_source=atlas_globe&utm_medium=referral';
+
 function creditHTML(p) {
     if (p.source === 'own') return 'Shot by Nils';
     const c = p.credit;
@@ -256,8 +261,22 @@ function creditHTML(p) {
     const who = c.link
         ? `<a href="${c.link}" target="_blank" rel="noopener">${escapeHTML(c.name)}</a>`
         : escapeHTML(c.name);
-    const where = p.licence ? ` / ${escapeHTML(p.licence)}` : '';
+    const where = p.source === 'unsplash'
+        ? ` on <a href="${UNSPLASH_HOME}" target="_blank" rel="noopener">Unsplash</a>`
+        : p.licence ? ` / ${escapeHTML(p.licence)}` : '';
     return `Photo by ${who}${where}`;
+}
+
+// Showing a photo full-screen is this app's equivalent of using it, so that's
+// when Unsplash wants the download endpoint pinged (via /api, which holds the
+// key). Once per photo per session — a tour must not ping the same shot twice.
+const tracked = new Set();
+function trackUse(p) {
+    if (p?.source !== 'unsplash' || tracked.has(p.id)) return;
+    tracked.add(p.id);
+    const id = p.id.replace(/^unsplash-/, '');
+    // fire and forget; telemetry must never break playback
+    fetch(`/api/unsplash-download?id=${encodeURIComponent(id)}`).catch(() => {});
 }
 
 const preloaded = new Set();
