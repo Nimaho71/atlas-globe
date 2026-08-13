@@ -919,7 +919,9 @@
       "name": "KaLisa Veer",
       "link": "https://unsplash.com/@kalisaveer?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Cliffs of Moher, Ireland",
+     "lat": 52.9715,
+     "lng": -9.4309
     },
     {
      "id": "unsplash-hn1PWxZpYOU",
@@ -934,7 +936,9 @@
       "name": "Connor Robertson",
       "link": "https://unsplash.com/@itsconnorrobertson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Cliffs of Moher, Ireland",
+     "lat": 52.9715,
+     "lng": -9.4309
     },
     {
      "id": "unsplash-G1HbURh6Afo",
@@ -949,7 +953,9 @@
       "name": "Thomas Kelley",
       "link": "https://unsplash.com/@thkelley?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Northern Ireland, Ireland",
+     "lat": 54.7877,
+     "lng": -6.4923
     },
     {
      "id": "unsplash-QNPv8NXIJ8U",
@@ -964,7 +970,7 @@
       "name": "Mark de Jong",
       "link": "https://unsplash.com/@mrmarkdejong?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Ireland"
+     "place": "Dingle Peninsula, Ireland"
     }
    ]
   },
@@ -1002,7 +1008,9 @@
       "name": "XAVIER PHOTOGRAPHY",
       "link": "https://unsplash.com/@xavierqu?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Montblanc, France",
+     "lat": 43.3958,
+     "lng": 3.3672
     },
     {
      "id": "unsplash-V72XZ1MkmCY",
@@ -1017,7 +1025,9 @@
       "name": "Sylvain Mauroux",
       "link": "https://unsplash.com/@alpifree?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Vallorcine, France",
+     "lat": 46.0335,
+     "lng": 6.9318
     },
     {
      "id": "unsplash-MwOv0ohV1hY",
@@ -1032,7 +1042,9 @@
       "name": "Manon Soubeyrand",
       "link": "https://unsplash.com/@maneige42?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "La Meije, France",
+     "lat": 45.0048,
+     "lng": 6.3082
     },
     {
      "id": "unsplash-jUHWO37xs9s",
@@ -1047,7 +1059,9 @@
       "name": "XAVIER PHOTOGRAPHY",
       "link": "https://unsplash.com/@xavierqu?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Montblanc, France",
+     "lat": 43.3958,
+     "lng": 3.3672
     },
     {
      "id": "unsplash-8i9CMDDYuFQ",
@@ -1062,7 +1076,9 @@
       "name": "Tom Reeder",
       "link": "https://unsplash.com/@reedertom21?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Tignes, France",
+     "lat": 45.4703,
+     "lng": 6.9077
     },
     {
      "id": "unsplash-uEOEpWD1UPg",
@@ -1077,7 +1093,9 @@
       "name": "Rowan Heuvel",
       "link": "https://unsplash.com/@insolitus?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Millau, France",
+     "lat": 44.0963,
+     "lng": 3.1236
     },
     {
      "id": "unsplash-OY5zbCCrWN4",
@@ -1092,7 +1110,9 @@
       "name": "Raphaël Brun",
       "link": "https://unsplash.com/@raphilanthrope?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Vosges, France",
+     "lat": 48.1446,
+     "lng": 6.3356
     },
     {
      "id": "unsplash-bBZyv-ZJ58Q",
@@ -1107,7 +1127,9 @@
       "name": "XAVIER PHOTOGRAPHY",
       "link": "https://unsplash.com/@xavierqu?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Montblanc, France",
+     "lat": 43.3958,
+     "lng": 3.3672
     },
     {
      "id": "unsplash-ki-Df4vZCW8",
@@ -1122,7 +1144,7 @@
       "name": "Geza Dombi",
       "link": "https://unsplash.com/@gezadombi?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Provence, France"
     },
     {
      "id": "unsplash-_hH48fdYuGc",
@@ -1137,7 +1159,9 @@
       "name": "Hassan Anayi",
       "link": "https://unsplash.com/@hassananayi?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "France"
+     "place": "Fumay, France",
+     "lat": 49.9945,
+     "lng": 4.706
     }
    ]
   },
@@ -1160,7 +1184,9 @@
       "name": "Saad Chaudhry",
       "link": "https://unsplash.com/@saadchdhry?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Córdoba, Spain",
+     "lat": 37.8882,
+     "lng": -4.7794
     },
     {
      "id": "unsplash-ovgRb5WLWMQ",
@@ -1175,7 +1201,9 @@
       "name": "Francisco  Moreno",
       "link": "https://unsplash.com/@franciscomoreno?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Casares, Spain",
+     "lat": 36.4447,
+     "lng": -5.2724
     },
     {
      "id": "unsplash-dFglhZpS9-8",
@@ -1190,7 +1218,9 @@
       "name": "Bo Saldaña",
       "link": "https://unsplash.com/@elmundook?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Ronda, Spain",
+     "lat": 36.7537,
+     "lng": -5.1483
     },
     {
      "id": "unsplash-i1SjoO4C_PY",
@@ -1205,7 +1235,9 @@
       "name": "Cristian iordan",
       "link": "https://unsplash.com/@barzuk27?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Plaza España, Spain",
+     "lat": 37.3768,
+     "lng": -5.9877
     },
     {
      "id": "unsplash-OR0KqeaXq_c",
@@ -1220,7 +1252,9 @@
       "name": "Guillermo Álvarez",
       "link": "https://unsplash.com/@guillermoalvarez?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Bandujo, Spain",
+     "lat": 43.2205,
+     "lng": -6.0716
     },
     {
      "id": "unsplash-43tiFs7b0KQ",
@@ -1235,7 +1269,9 @@
       "name": "Pablo R. Bartol",
       "link": "https://unsplash.com/@pablorbartol?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Spain"
+     "place": "Playacanela Hotel, Spain",
+     "lat": 37.1831,
+     "lng": -7.3452
     },
     {
      "id": "unsplash-ZLw0qestV9w",
@@ -1273,7 +1309,9 @@
       "name": "Raja Sen",
       "link": "https://unsplash.com/@rajasen?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisboa, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-nD0WS3zeRZg",
@@ -1288,7 +1326,9 @@
       "name": "James Kirkup",
       "link": "https://unsplash.com/@james_open?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-xP3OYd1h_hg",
@@ -1303,7 +1343,9 @@
       "name": "Cassia Tofano",
       "link": "https://unsplash.com/@cassiatofano?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-n6QNnTVgi84",
@@ -1348,7 +1390,9 @@
       "name": "Stevo",
       "link": "https://unsplash.com/@stevopsd?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-lGqG2CiKM6U",
@@ -1363,7 +1407,9 @@
       "name": "Zeyad Al-Najjar",
       "link": "https://unsplash.com/@zeyad99?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-pBf8bW_AC44",
@@ -1378,7 +1424,9 @@
       "name": "Mathis Bogens",
       "link": "https://unsplash.com/@mathisbogens?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-CHNFh_mzuEc",
@@ -1393,7 +1441,9 @@
       "name": "Ivo Sousa Martins",
       "link": "https://unsplash.com/@ivosouzamartins?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Portugal"
+     "place": "Lisbon, Portugal",
+     "lat": 38.7223,
+     "lng": -9.1393
     },
     {
      "id": "unsplash-eq28w3TYTD8",
@@ -1431,7 +1481,9 @@
       "name": "Stefano Zocca",
       "link": "https://unsplash.com/@stefano_zocca?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Marina di Massa, Italy",
+     "lat": 44.0594,
+     "lng": 10.2046
     },
     {
      "id": "unsplash-Xm38YYuFVZY",
@@ -1446,7 +1498,7 @@
       "name": "Megan Andrews",
       "link": "https://unsplash.com/@meganreandrews?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Carrara, Italy"
     },
     {
      "id": "unsplash-Pmy1wYp1vYg",
@@ -1461,7 +1513,9 @@
       "name": "Juanita de Paola",
       "link": "https://unsplash.com/@littlemissbusiness?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Montefegatesi, Italy",
+     "lat": 44.0639,
+     "lng": 10.5942
     },
     {
      "id": "unsplash-jE1K0Idr6yc",
@@ -1476,7 +1530,9 @@
       "name": "Barney Goodman",
       "link": "https://unsplash.com/@bgoodpic?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Italy",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-OpLpnymando",
@@ -1491,7 +1547,9 @@
       "name": "Federico Di Dio photography",
       "link": "https://unsplash.com/@didiofederico_photographer?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Italy",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-FmVLCFbon9E",
@@ -1506,7 +1564,9 @@
       "name": "Taylor Smith",
       "link": "https://unsplash.com/@taylor_smith?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Florence, Italy",
+     "lat": 43.7679,
+     "lng": 11.2524
     },
     {
      "id": "unsplash-UVN3KmbEzLA",
@@ -1521,7 +1581,9 @@
       "name": "Marcin Szmigiel",
       "link": "https://unsplash.com/@kjuri?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Pienza, Italy",
+     "lat": 43.0775,
+     "lng": 11.6776
     },
     {
      "id": "unsplash-Pp_zMtprKDc",
@@ -1536,7 +1598,9 @@
       "name": "Federico Di Dio photography",
       "link": "https://unsplash.com/@didiofederico_photographer?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "Italy",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-yJYS-stkN5c",
@@ -1566,7 +1630,9 @@
       "name": "José Luis Lobera",
       "link": "https://unsplash.com/@jlobera?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Italy"
+     "place": "San Gimignano, Italy",
+     "lat": 43.4672,
+     "lng": 11.0434
     }
    ]
   },
@@ -1589,7 +1655,9 @@
       "name": "Patrick Federi",
       "link": "https://unsplash.com/@federi?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Sporz, Switzerland",
+     "lat": 46.7117,
+     "lng": 9.5405
     },
     {
      "id": "unsplash-oYsAPgE1nq0",
@@ -1619,7 +1687,7 @@
       "name": "Xavier von Erlach",
       "link": "https://unsplash.com/@xavier_von_erlach?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Village d'Arbey, Switzerland"
     },
     {
      "id": "unsplash-XCZUwfgj5LA",
@@ -1634,7 +1702,9 @@
       "name": "Timon Studler",
       "link": "https://unsplash.com/@derstudi?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Brienzer Rothorn, Switzerland",
+     "lat": 46.7874,
+     "lng": 8.0384
     },
     {
      "id": "unsplash-Lp9ackChry4",
@@ -1649,7 +1719,9 @@
       "name": "Oleksandr Alex",
       "link": "https://unsplash.com/@carpenterbees?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Lauterbrunnen, Switzerland",
+     "lat": 46.5935,
+     "lng": 7.9091
     },
     {
      "id": "unsplash-g9HRrjOu0Fc",
@@ -1664,7 +1736,9 @@
       "name": "Aravind Sreekumar Nair",
       "link": "https://unsplash.com/@aravindu62?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Switzerland",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-laGUhf6FLqc",
@@ -1679,7 +1753,9 @@
       "name": "Tobias Marks",
       "link": "https://unsplash.com/@biasx?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Adelboden, Switzerland",
+     "lat": 46.4931,
+     "lng": 7.5595
     },
     {
      "id": "unsplash-Fy2BjlJZQrI",
@@ -1694,7 +1770,9 @@
       "name": "Maryna Yanul",
       "link": "https://unsplash.com/@marynayanul?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Switzerland",
+     "lat": 46.8182,
+     "lng": 8.2275
     },
     {
      "id": "unsplash-drcUQG_k_BI",
@@ -1709,7 +1787,9 @@
       "name": "Oleksandr Alex",
       "link": "https://unsplash.com/@carpenterbees?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Lauterbrunnen, Switzerland",
+     "lat": 46.5935,
+     "lng": 7.9091
     },
     {
      "id": "unsplash-GwOpJKBuLPE",
@@ -1724,7 +1804,9 @@
       "name": "Aravind Sreekumar Nair",
       "link": "https://unsplash.com/@aravindu62?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Switzerland",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-m6YF6E9nwmQ",
@@ -1739,7 +1821,9 @@
       "name": "Mmoka .",
       "link": "https://unsplash.com/@pedarun?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Switzerland"
+     "place": "Aigle Castle, Switzerland",
+     "lat": 46.315,
+     "lng": 6.9763
     }
    ]
   },
@@ -1762,7 +1846,9 @@
       "name": "Ammar Sabanovic",
       "link": "https://unsplash.com/@ammarsab?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Drače, Croatia",
+     "lat": 42.9293,
+     "lng": 17.4482
     },
     {
      "id": "unsplash-2fu7CsklT-g",
@@ -1777,7 +1863,9 @@
       "name": "Matej Pribanic",
       "link": "https://unsplash.com/@bukze?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Vrbnik, Croatia",
+     "lat": 45.0757,
+     "lng": 14.6753
     },
     {
      "id": "unsplash-B6-hdnzuzZY",
@@ -1792,7 +1880,9 @@
       "name": "Matej Pribanic",
       "link": "https://unsplash.com/@bukze?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Krk, Croatia",
+     "lat": 45.0279,
+     "lng": 14.5752
     },
     {
      "id": "unsplash-vVCUb-M9ies",
@@ -1807,7 +1897,9 @@
       "name": "Karolina Kołodziejczak",
       "link": "https://unsplash.com/@rabbit_in_blue?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Split, Croatia",
+     "lat": 43.5081,
+     "lng": 16.4402
     },
     {
      "id": "unsplash-pQfbr_22jlw",
@@ -1822,7 +1914,9 @@
       "name": "Ammar Sabanovic",
       "link": "https://unsplash.com/@ammarsab?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Grad Makarska, Croatia",
+     "lat": 43.2966,
+     "lng": 17.0185
     },
     {
      "id": "unsplash-KY8eEOb4w4k",
@@ -1837,7 +1931,9 @@
       "name": "Matej Pribanic",
       "link": "https://unsplash.com/@bukze?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Vrbnik, Croatia",
+     "lat": 45.0757,
+     "lng": 14.6753
     },
     {
      "id": "unsplash-UT7ixInqrVg",
@@ -1852,7 +1948,9 @@
       "name": "Ira Kuziv",
       "link": "https://unsplash.com/@photoistoriia?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Croatia",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-uWP8WMqmEyI",
@@ -1867,7 +1965,9 @@
       "name": "Matej Pribanic",
       "link": "https://unsplash.com/@bukze?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Croatia"
+     "place": "Krk, Croatia",
+     "lat": 45.0279,
+     "lng": 14.5752
     }
    ]
   },
@@ -1890,7 +1990,9 @@
       "name": "Pretty Pink",
       "link": "https://unsplash.com/@infinitexplorer?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Santorini, Greece",
+     "lat": 36.4166,
+     "lng": 25.4324
     },
     {
      "id": "unsplash-UfCJ2WrdTBw",
@@ -1905,7 +2007,9 @@
       "name": "Yang Yang",
       "link": "https://unsplash.com/@dryaaang?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Santorini, Greece",
+     "lat": 36.4166,
+     "lng": 25.4324
     },
     {
      "id": "unsplash-KTwhQQf1yus",
@@ -1920,7 +2024,9 @@
       "name": "Matt Artz",
       "link": "https://unsplash.com/@mattartz?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Oia, Greece",
+     "lat": 36.4618,
+     "lng": 25.3753
     },
     {
      "id": "unsplash-JLzFPHjRW7U",
@@ -1935,7 +2041,9 @@
       "name": "Philip Jahn",
       "link": "https://unsplash.com/@pj_visual?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Oia, Greece",
+     "lat": 36.4623,
+     "lng": 25.3813
     },
     {
      "id": "unsplash-2GcBIkxQkr8",
@@ -1950,7 +2058,9 @@
       "name": "Raphael Lopes",
       "link": "https://unsplash.com/@raph_lopes?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Santorini, Greece",
+     "lat": 36.4166,
+     "lng": 25.4324
     },
     {
      "id": "unsplash-TkVy388Eopc",
@@ -1965,7 +2075,9 @@
       "name": "Anthony DELANOIX",
       "link": "https://unsplash.com/@anthonydelanoix?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Archipel de Santorin, Greece",
+     "lat": 36.3932,
+     "lng": 25.4615
     },
     {
      "id": "unsplash-6ApXN2_qjI0",
@@ -1980,7 +2092,9 @@
       "name": "SOURAV BHADRA",
       "link": "https://unsplash.com/@sbhadra07?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Greece"
+     "place": "Santorini, Greece",
+     "lat": 36.4166,
+     "lng": 25.4324
     }
    ]
   },
@@ -2018,7 +2132,9 @@
       "name": "Magdalena Kula Manchee",
       "link": "https://unsplash.com/@magdalenakulamanchee?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Cappadocia, Turkey",
+     "lat": 38.3535,
+     "lng": 35.0911
     },
     {
      "id": "unsplash-oC_jXPe4vC4",
@@ -2033,7 +2149,9 @@
       "name": "Carlo Romero",
       "link": "https://unsplash.com/@carlo3173?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Turkey",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-bBF9e2UUh88",
@@ -2048,7 +2166,9 @@
       "name": "Mar Cerdeira",
       "link": "https://unsplash.com/@estudiodelmar?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Turkey",
+     "lat": 38.9637,
+     "lng": 35.2433
     },
     {
      "id": "unsplash-0F5jq3WYoR8",
@@ -2063,7 +2183,9 @@
       "name": "Ahmet Harmanli",
       "link": "https://unsplash.com/@hrmnli?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Göreme Milli Parkı, Turkey",
+     "lat": 38.6418,
+     "lng": 34.8331
     },
     {
      "id": "unsplash-JMjB1zQ09Oc",
@@ -2078,7 +2200,9 @@
       "name": "Kaan Kosemen",
       "link": "https://unsplash.com/@kaankosemen?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Kapadokya, Turkey",
+     "lat": 38.3535,
+     "lng": 35.0911
     },
     {
      "id": "unsplash-Mql3hDm6uQo",
@@ -2093,7 +2217,9 @@
       "name": "Alexandre Contador",
       "link": "https://unsplash.com/@growthwithalex?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Cappadocia, Turkey",
+     "lat": 38.3535,
+     "lng": 35.0911
     },
     {
      "id": "unsplash-XzZ7Yf3je1A",
@@ -2108,7 +2234,9 @@
       "name": "selcuk sarikoz",
       "link": "https://unsplash.com/@funnyturkishdude?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Turkey"
+     "place": "Turkey",
+     "lat": 0,
+     "lng": 0
     }
    ]
   },
@@ -2131,7 +2259,9 @@
       "name": "Aleksander Stypczynski",
       "link": "https://unsplash.com/@aleksander_stypczynski?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Aït Benhaddou, Morocco",
+     "lat": 31.047,
+     "lng": -7.1319
     },
     {
      "id": "unsplash-OBQLbUc9PH0",
@@ -2146,7 +2276,9 @@
       "name": "Matthew Stephenson",
       "link": "https://unsplash.com/@matthewryanstephenson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Morocco",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-yxM2De3xYTk",
@@ -2161,7 +2293,9 @@
       "name": "Matthew Stephenson",
       "link": "https://unsplash.com/@matthewryanstephenson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Morocco",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-_twM--k3HM4",
@@ -2176,7 +2310,9 @@
       "name": "Matthew Stephenson",
       "link": "https://unsplash.com/@matthewryanstephenson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Morocco",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-jnRwNEubXjw",
@@ -2191,7 +2327,9 @@
       "name": "Mohamed Abira",
       "link": "https://unsplash.com/@moroccopictures?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Tinghir, Morocco",
+     "lat": 31.5205,
+     "lng": -5.5302
     },
     {
      "id": "unsplash-CEJVrEJ0bX8",
@@ -2206,7 +2344,9 @@
       "name": "Matthew Stephenson",
       "link": "https://unsplash.com/@matthewryanstephenson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Morocco"
+     "place": "Morocco",
+     "lat": 0,
+     "lng": 0
     }
    ]
   },
@@ -2229,7 +2369,9 @@
       "name": "simon",
       "link": "https://unsplash.com/@simon_berger?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Egypt"
+     "place": "Al Ahram, Egypt",
+     "lat": 29.973,
+     "lng": 31.1323
     },
     {
      "id": "unsplash-vqRMXgVtGXM",
@@ -2244,7 +2386,9 @@
       "name": "Osama Elsayed",
       "link": "https://unsplash.com/@osamaabosaadia?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Egypt"
+     "place": "Pyramids Gardens, Egypt",
+     "lat": 29.9712,
+     "lng": 31.1013
     },
     {
      "id": "unsplash-6bHRKJYnUwg",
@@ -2259,7 +2403,9 @@
       "name": "2H Media",
       "link": "https://unsplash.com/@2hmedia?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Egypt"
+     "place": "Giza Pyramid Complex, Egypt",
+     "lat": 29.9773,
+     "lng": 31.1325
     },
     {
      "id": "unsplash-6uJDEQx-cho",
@@ -2274,7 +2420,9 @@
       "name": "Pradeep Gopal",
       "link": "https://unsplash.com/@protonomous?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Egypt"
+     "place": "Giza, Egypt",
+     "lat": 30.0131,
+     "lng": 31.2089
     },
     {
      "id": "unsplash-9G7gfPz_6MI",
@@ -2289,7 +2437,9 @@
       "name": "Jordi Orts Segalés",
       "link": "https://unsplash.com/@jordiorts?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Egypt"
+     "place": "Río Nilo, Egypt",
+     "lat": 23.9728,
+     "lng": 32.8749
     },
     {
      "id": "unsplash-6UWwgpC4n6Y",
@@ -2327,7 +2477,7 @@
       "name": "Bibhash (Polygon.Cafe) Banerjee",
       "link": "https://unsplash.com/@perventuator?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Masai Mara National Reserve, Kenya"
     },
     {
      "id": "unsplash-Cjbb9aeHeD8",
@@ -2342,7 +2492,9 @@
       "name": "Sweder Breet",
       "link": "https://unsplash.com/@sweder_etc?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Great Rift Valley, Kenya",
+     "lat": 3.7966,
+     "lng": 36.4112
     },
     {
      "id": "unsplash-e7kiZU0QbN4",
@@ -2357,7 +2509,9 @@
       "name": "Selin Karahan",
       "link": "https://unsplash.com/@selinkarahan_?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Maasai Mara National Reserve, Kenya",
+     "lat": -1.4821,
+     "lng": 35.13
     },
     {
      "id": "unsplash-EbNgg8eOV-M",
@@ -2372,7 +2526,9 @@
       "name": "Udara Karunarathna",
       "link": "https://unsplash.com/@itsmepodda?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Kenya",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-wOauvcluLBY",
@@ -2387,7 +2543,7 @@
       "name": "Bibhash (Polygon.Cafe) Banerjee",
       "link": "https://unsplash.com/@perventuator?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Masai Mara National Reserve, Kenya"
     },
     {
      "id": "unsplash-IL9GCUg5Zvc",
@@ -2402,7 +2558,9 @@
       "name": "Neil and Zulma Scott",
       "link": "https://unsplash.com/@valenciascott?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Amboseli, Kenya",
+     "lat": -2.6602,
+     "lng": 37.2116
     },
     {
      "id": "unsplash-NZHU5vfPo3M",
@@ -2417,7 +2575,9 @@
       "name": "Matt Cramblett",
       "link": "https://unsplash.com/@mcramblett?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Kenya"
+     "place": "Mount Kilimanjaro, Kenya",
+     "lat": -2.8967,
+     "lng": 37.447
     }
    ]
   },
@@ -2455,7 +2615,9 @@
       "name": "Regal African Safaris",
       "link": "https://unsplash.com/@regalafricasafaris?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Tanzania"
+     "place": "Serengeti National Park, Tanzania",
+     "lat": -2.3333,
+     "lng": 34.8333
     },
     {
      "id": "unsplash-fzsJesR92jE",
@@ -2470,7 +2632,9 @@
       "name": "Justin Lane",
       "link": "https://unsplash.com/@justinflane?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Tanzania"
+     "place": "Serengeti, Tanzania",
+     "lat": -2.154,
+     "lng": 34.6857
     },
     {
      "id": "unsplash-0mqrqbwjKc4",
@@ -2485,7 +2649,9 @@
       "name": "ray rui",
       "link": "https://unsplash.com/@ray30?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Tanzania"
+     "place": "Tarangire National Park, Tanzania",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-oOp5mgNUd2U",
@@ -2500,7 +2666,9 @@
       "name": "Daniel Vargas",
       "link": "https://unsplash.com/@dan_vargs?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Tanzania"
+     "place": "Kilimanjaro, Tanzania",
+     "lat": -3.0674,
+     "lng": 37.3556
     },
     {
      "id": "unsplash-8F1KWlJcS6o",
@@ -2515,7 +2683,9 @@
       "name": "Wilson Stratton",
       "link": "https://unsplash.com/@wilsonsharpshots?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Tanzania"
+     "place": "Serengeti, Tanzania",
+     "lat": -1.8936,
+     "lng": 34.6857
     }
    ]
   },
@@ -2538,7 +2708,7 @@
       "name": "Sergi Ferrete",
       "link": "https://unsplash.com/@sergiferrete?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Sandwich Harbour, Namibia"
     },
     {
      "id": "unsplash-2vSQw0Qxi5c",
@@ -2553,7 +2723,9 @@
       "name": "Joshua Kettle",
       "link": "https://unsplash.com/@joshuakettle?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Namibia",
+     "lat": -22.9576,
+     "lng": 18.4904
     },
     {
      "id": "unsplash-lVtDaW6YcWQ",
@@ -2568,7 +2740,9 @@
       "name": "Erik",
       "link": "https://unsplash.com/@brmr?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Namib Desert, Namibia",
+     "lat": -24.2889,
+     "lng": 15.2605
     },
     {
      "id": "unsplash-aMzh7krw0v0",
@@ -2583,7 +2757,9 @@
       "name": "Andreas Vonlanthen",
       "link": "https://unsplash.com/@vole73?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Sandwich Harbour, Namibia",
+     "lat": -23.1624,
+     "lng": 14.4547
     },
     {
      "id": "unsplash-3QpmCY_uYQc",
@@ -2613,7 +2789,9 @@
       "name": "m_oros",
       "link": "https://unsplash.com/@m_oros?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Deadvlei, Namibia",
+     "lat": -24.7593,
+     "lng": 15.2924
     },
     {
      "id": "unsplash-iuo7PqHp89I",
@@ -2628,7 +2806,9 @@
       "name": "Thomas Chizzali",
       "link": "https://unsplash.com/@enchponnt?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Namibia"
+     "place": "Namibia",
+     "lat": 0,
+     "lng": 0
     }
    ]
   },
@@ -2651,7 +2831,9 @@
       "name": "Jaman Asad",
       "link": "https://unsplash.com/@asadsnapper?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Camps Bay, South Africa",
+     "lat": -33.9513,
+     "lng": 18.3831
     },
     {
      "id": "unsplash--7ZwuyDx2rI",
@@ -2666,7 +2848,9 @@
       "name": "Tobias Reich",
       "link": "https://unsplash.com/@electerious?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Cape Town, South Africa",
+     "lat": -33.9249,
+     "lng": 18.4241
     },
     {
      "id": "unsplash-GJxaa1yrT_8",
@@ -2681,7 +2865,9 @@
       "name": "Tobias Reich",
       "link": "https://unsplash.com/@electerious?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Cape Town, South Africa",
+     "lat": -33.9249,
+     "lng": 18.4241
     },
     {
      "id": "unsplash-rqrv0bbzMLg",
@@ -2696,7 +2882,9 @@
       "name": "John O'Nolan",
       "link": "https://unsplash.com/@johnonolan?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Cape Town, South Africa",
+     "lat": -33.9481,
+     "lng": 18.3744
     },
     {
      "id": "unsplash-frHqpHZUa2g",
@@ -2726,7 +2914,9 @@
       "name": "Finding Dan | Dan Grinwis",
       "link": "https://unsplash.com/@finding_dan?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Cape Town, South Africa",
+     "lat": -33.9249,
+     "lng": 18.4241
     },
     {
      "id": "unsplash-9MUGYaENbHM",
@@ -2741,7 +2931,9 @@
       "name": "Matthias Mullie",
       "link": "https://unsplash.com/@matthiasmullie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "V&A Waterfront, South Africa",
+     "lat": -33.9036,
+     "lng": 18.4205
     },
     {
      "id": "unsplash-53tN_APs-50",
@@ -2756,7 +2948,9 @@
       "name": "Ashley Jurius",
       "link": "https://unsplash.com/@ashleyjurius?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Lion's Head, South Africa",
+     "lat": -33.934,
+     "lng": 18.3893
     },
     {
      "id": "unsplash-J-yDj62KSxE",
@@ -2771,7 +2965,9 @@
       "name": "Tim Johnson",
       "link": "https://unsplash.com/@timalanjohnson?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Hout Bay, South Africa",
+     "lat": -34.0173,
+     "lng": 18.3397
     },
     {
      "id": "unsplash-35ogzBzpVBc",
@@ -2786,7 +2982,9 @@
       "name": "Thomas Bennie",
       "link": "https://unsplash.com/@thomasbennie?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "South Africa"
+     "place": "Devil's Peak, South Africa",
+     "lat": -33.9549,
+     "lng": 18.4395
     }
    ]
   },
@@ -2809,7 +3007,9 @@
       "name": "Fabio Montello",
       "link": "https://unsplash.com/@fabiomontello?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Chureito Pagoda, Japan",
+     "lat": 35.5013,
+     "lng": 138.8014
     },
     {
      "id": "unsplash-nd0SUC4efzQ",
@@ -2824,7 +3024,9 @@
       "name": "Greace Xaveria",
       "link": "https://unsplash.com/@greacex?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Mount Fuji, Japan",
+     "lat": 35.3606,
+     "lng": 138.7274
     },
     {
      "id": "unsplash-Clf-We2tsk0",
@@ -2839,7 +3041,9 @@
       "name": "VENUS MAJOR",
       "link": "https://unsplash.com/@venusmajor?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Mount Fuji, Japan",
+     "lat": 35.3606,
+     "lng": 138.7274
     },
     {
      "id": "unsplash-UImqZY1zA2k",
@@ -2854,7 +3058,9 @@
       "name": "waa towaw",
       "link": "https://unsplash.com/@toowaaw?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Japan",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-jo7eiYhE2zY",
@@ -2869,7 +3075,9 @@
       "name": "Sebastian GAINA",
       "link": "https://unsplash.com/@sebexploring?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Japan",
+     "lat": 0,
+     "lng": 0
     },
     {
      "id": "unsplash-qi9q6QzG7s4",
@@ -2884,7 +3092,9 @@
       "name": "Greace Xaveria",
       "link": "https://unsplash.com/@greacex?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Yamanakako, Japan",
+     "lat": 35.4106,
+     "lng": 138.8611
     },
     {
      "id": "unsplash-PyDYdL0vVZc",
@@ -2899,7 +3109,9 @@
       "name": "Flavio Mori",
       "link": "https://unsplash.com/@flvision_?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Japan"
+     "place": "Fujikawaguchiko, Japan",
+     "lat": 35.4973,
+     "lng": 138.7552
     }
    ]
   },
@@ -2922,7 +3134,9 @@
       "name": "farfar",
       "link": "https://unsplash.com/@fcracer?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Laozhai, China",
+     "lat": 24.988,
+     "lng": 110.4161
     },
     {
      "id": "unsplash-Rv080KhKU-Y",
@@ -2937,7 +3151,9 @@
       "name": "Jon Geng",
       "link": "https://unsplash.com/@jongeng?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Guilin, China",
+     "lat": 25.2736,
+     "lng": 110.29
     },
     {
      "id": "unsplash-NBbB6y1YvBE",
@@ -2952,7 +3168,9 @@
       "name": "Patrick Xu",
       "link": "https://unsplash.com/@patrickxt?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Dang Xiao Lu, China",
+     "lat": 24.7771,
+     "lng": 110.4895
     },
     {
      "id": "unsplash-e7bLs67-aFY",
@@ -2967,7 +3185,9 @@
       "name": "Kurt z",
       "link": "https://unsplash.com/@syucyann?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Yangshuo, China",
+     "lat": 24.7784,
+     "lng": 110.4966
     },
     {
      "id": "unsplash-NOoAtNhIh-4",
@@ -2982,7 +3202,9 @@
       "name": "Conny Schneider",
       "link": "https://unsplash.com/@choys_?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Guilin, China",
+     "lat": 25.2345,
+     "lng": 110.18
     },
     {
      "id": "unsplash-f_jBvzQIgig",
@@ -2997,7 +3219,9 @@
       "name": "Ekaterina Zlotnikova",
       "link": "https://unsplash.com/@katja_zlotnikova?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Guilin, China",
+     "lat": 25.2736,
+     "lng": 110.29
     },
     {
      "id": "unsplash-HdOilpeM8aM",
@@ -3012,7 +3236,9 @@
       "name": "Willian Justen de Vasconcellos",
       "link": "https://unsplash.com/@willianjusten?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Yangshuo Town, China",
+     "lat": 24.7738,
+     "lng": 110.4953
     },
     {
      "id": "unsplash-N5Qx6-GyLJk",
@@ -3042,7 +3268,9 @@
       "name": "Willian Justen de Vasconcellos",
       "link": "https://unsplash.com/@willianjusten?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Yangshuo Town, China",
+     "lat": 24.7738,
+     "lng": 110.4953
     },
     {
      "id": "unsplash-hBEIZOrIpRs",
@@ -3057,7 +3285,9 @@
       "name": "Willian Justen de Vasconcellos",
       "link": "https://unsplash.com/@willianjusten?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Yangshuo, China",
+     "lat": 24.7784,
+     "lng": 110.4966
     },
     {
      "id": "unsplash-H9HAjRoWNgI",
@@ -3072,7 +3302,9 @@
       "name": "Anthony Maw",
       "link": "https://unsplash.com/@anthonymaw?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "China"
+     "place": "Guilin, China",
+     "lat": 25.2736,
+     "lng": 110.29
     }
    ]
   },
@@ -3095,7 +3327,9 @@
       "name": "Avel Chuklanov",
       "link": "https://unsplash.com/@chuklanov?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Kàtmandu, Nepal",
+     "lat": 27.7172,
+     "lng": 85.324
     },
     {
      "id": "unsplash-FuuEdB1XN4M",
@@ -3125,7 +3359,9 @@
       "name": "Kalle Kortelainen",
       "link": "https://unsplash.com/@custodiancontent?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Namche Bazar, Nepal",
+     "lat": 27.8069,
+     "lng": 86.714
     },
     {
      "id": "unsplash-WMpyRPaS7DQ",
@@ -3140,7 +3376,9 @@
       "name": "Azin Javadzadeh",
       "link": "https://unsplash.com/@azinjavadzadeh?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Poon Hill, Nepal",
+     "lat": 28.4002,
+     "lng": 83.6893
     },
     {
      "id": "unsplash-8t2aqR9suDo",
@@ -3155,7 +3393,9 @@
       "name": "Rohan Reddy",
       "link": "https://unsplash.com/@rofotoqoto?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Himalayas, Nepal",
+     "lat": 28.5983,
+     "lng": 83.9311
     },
     {
      "id": "unsplash-VsfhhS05xo4",
@@ -3185,7 +3425,9 @@
       "name": "Martin Skřivánek",
       "link": "https://unsplash.com/@skrivan?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Pokhara, Nepal",
+     "lat": 28.2096,
+     "lng": 83.9856
     },
     {
      "id": "unsplash--sz-PCtnmFI",
@@ -3200,7 +3442,9 @@
       "name": "Martin Skřivánek",
       "link": "https://unsplash.com/@skrivan?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Pokhara, Nepal",
+     "lat": 28.2096,
+     "lng": 83.9856
     },
     {
      "id": "unsplash-xiFgJhXtlg8",
@@ -3215,7 +3459,9 @@
       "name": "Slava Auchynnikau",
       "link": "https://unsplash.com/@auchynnikau?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Nepal"
+     "place": "Himalayas, Nepal",
+     "lat": 28.5983,
+     "lng": 83.931
     }
    ]
   },
@@ -3238,7 +3484,9 @@
       "name": "Julian Yu",
       "link": "https://unsplash.com/@littlej1428?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Agra, India",
+     "lat": 27.1767,
+     "lng": 78.0081
     },
     {
      "id": "unsplash-s34iTpkwnF0",
@@ -3253,7 +3501,9 @@
       "name": "Mitchell Ng Liang an",
       "link": "https://unsplash.com/@mitchellngyummy?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Agra, India",
+     "lat": 27.1767,
+     "lng": 78.0081
     },
     {
      "id": "unsplash-j5YwVDEC394",
@@ -3268,7 +3518,9 @@
       "name": "Mitchell Ng Liang an",
       "link": "https://unsplash.com/@mitchellngyummy?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Agra, India",
+     "lat": 27.1767,
+     "lng": 78.0081
     },
     {
      "id": "unsplash-ZCPFZTBYBIY",
@@ -3283,7 +3535,9 @@
       "name": "Naveen Kashyap",
       "link": "https://unsplash.com/@itsnaveenn?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Mathura, India",
+     "lat": 27.4924,
+     "lng": 77.6737
     },
     {
      "id": "unsplash-RC13W9yt5bg",
@@ -3298,7 +3552,7 @@
       "name": "Unsplash Momin",
       "link": "https://unsplash.com/@unsplash_momin?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Jammu, India"
     },
     {
      "id": "unsplash-IOwItPmnkyU",
@@ -3313,7 +3567,9 @@
       "name": "Nina Luong",
       "link": "https://unsplash.com/@ninaluong?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Amer, India",
+     "lat": 26.988,
+     "lng": 75.861
     },
     {
      "id": "unsplash-RugN1OsUwHM",
@@ -3328,7 +3584,9 @@
       "name": "Annie Spratt",
       "link": "https://unsplash.com/@anniespratt?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "India"
+     "place": "Jaipur, India",
+     "lat": 26.9264,
+     "lng": 75.8275
     }
    ]
   },
@@ -3351,7 +3609,9 @@
       "name": "Mathew Schwartz",
       "link": "https://unsplash.com/@cadop?utm_source=atlas_globe&utm_medium=referral"
      },
-     "place": "Thailand"
+     "place": "Wiang Kum Kam, Thailand",
+     "lat": 18.7509,
+     "lng": 98.9986
     },
     {
      "id": "unsplash-aPP7N8vCe24",

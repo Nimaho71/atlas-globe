@@ -12,6 +12,7 @@ import { search } from './unsplash.js';
 const CONFIG     = 'src/data/countries.config.json';
 const CANDIDATES = 'src/data/candidates.json';
 const LOCATIONS  = 'src/data/locations.json';
+const OWN        = 'src/data/own.json';
 const OUT        = 'public/data/photos.json';
 const PER_COUNTRY = 5;
 
@@ -22,6 +23,7 @@ const mode  = args.includes('--candidates') ? 'candidates' : 'build';
 const config    = JSON.parse(readFileSync(CONFIG, 'utf8'));
 const centroids = JSON.parse(readFileSync('public/data/centroids.json', 'utf8'));
 const locations = existsSync(LOCATIONS) ? JSON.parse(readFileSync(LOCATIONS, 'utf8')) : {};
+const ownPhotos = existsSync(OWN) ? (JSON.parse(readFileSync(OWN, 'utf8')).photos ?? []) : [];
 
 const codes = Object.keys(config).filter(c => !only || only.includes(c));
 
@@ -62,18 +64,35 @@ async function build() {
     const countries = [];
     const problems  = [];
 
-    for (const code of Object.keys(config)) {
+    // Your own photographs lead their country's set — they're the point, the
+    // stock photos are the backdrop.
+    const ownByIso = new Map();
+    for (const p of ownPhotos) {
+        if (!p.iso) continue;
+        if (!ownByIso.has(p.iso)) ownByIso.set(p.iso, []);
+        ownByIso.get(p.iso).push(p);
+    }
+
+    // an own photo in a country with no Unsplash config still gets a place
+    const allCodes = new Set([...Object.keys(config), ...ownByIso.keys()]);
+
+    for (const code of allCodes) {
         const place = centroids[code];
         if (!place) { problems.push(`${code}: no centroid — not an ISO country in the map data`); continue; }
 
         const pool = store[code]?.photos ?? [];
-        const keep = config[code].keep ?? [];
+        const keep = config[code]?.keep ?? [];
         // curated ids win; otherwise fall back to the first N of the search
         const chosen = keep.length
             ? keep.map(id => pool.find(p => p.id === id)).filter(Boolean)
             : pool.slice(0, PER_COUNTRY);
 
-        if (!chosen.length) { problems.push(`${code}: no photos — run --candidates, then curate`); continue; }
+        const mine = ownByIso.get(code) ?? [];
+
+        if (!chosen.length && !mine.length) {
+            problems.push(`${code}: no photos — run --candidates, then curate`);
+            continue;
+        }
         if (keep.length && chosen.length < keep.length) {
             problems.push(`${code}: ${keep.length - chosen.length} kept id(s) missing from candidates`);
         }
@@ -83,18 +102,24 @@ async function build() {
             name: place.name,
             lat:  place.lat,
             lng:  place.lng,
-            photos: chosen.map(p => ({
-                ...strip(p),
-                place: prettyPlace(locations[p.id], place.name),
-                ...coords(locations[p.id]),
-            })),
+            photos: [
+                ...mine.map(p => ({ ...p, place: p.place || place.name })),
+                ...chosen.map(p => ({
+                    ...strip(p),
+                    place: prettyPlace(locations[p.id], place.name),
+                    ...coords(locations[p.id]),
+                })),
+            ],
         });
     }
 
     // Every photo must carry attribution — that is the whole deal with these APIs,
     // so a missing credit fails the build rather than shipping quietly.
+    // (your own photos need a name but no profile link — there's nowhere to link to)
     const uncredited = countries.flatMap(c =>
-        c.photos.filter(p => !p.credit?.name || !p.credit?.link).map(p => `${c.iso}/${p.id}`));
+        c.photos
+            .filter(p => !p.credit?.name || (p.source !== 'own' && !p.credit?.link))
+            .map(p => `${c.iso}/${p.id}`));
     if (uncredited.length) {
         console.error('Refusing to write: photos without attribution:\n  ' + uncredited.join('\n  '));
         process.exit(1);

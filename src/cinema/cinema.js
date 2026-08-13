@@ -239,7 +239,8 @@ export function createCinema({ onOpen, onClose } = {}) {
 // accept a `w` query param on their image URLs.
 export function sized(photo, w) {
     const url = photo.url;
-    if (!/^https?:/.test(url)) return url;
+    // own photos ship as two files rather than a resizing CDN
+    if (!/^https?:/.test(url)) return w <= 800 && photo.thumb ? photo.thumb : url;
     const u = new URL(url);
     u.searchParams.set('w', String(w));
     if (u.hostname.includes('unsplash')) {
@@ -254,7 +255,8 @@ export function sized(photo, w) {
 const UNSPLASH_HOME = 'https://unsplash.com/?utm_source=atlas_globe&utm_medium=referral';
 
 function creditHTML(p) {
-    if (p.source === 'own') return 'Shot by Nils';
+    // whoever cloned this — the name rides along in the data
+    if (p.source === 'own') return `Shot by ${escapeHTML(p.credit?.name ?? 'the author')}`;
     const c = p.credit;
     if (!c?.name) return '';
     const who = c.link

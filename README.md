@@ -35,6 +35,38 @@ npm run dev
 | `npm run curate` | Contact sheet at :4321 — click to pick keepers, writes them to the config |
 | `npm run fetch` | Builds `photos.json` from the curated picks (top 5 if none curated) |
 
+## Your own photographs
+
+Point the importer at a folder and your photos join the globe, ahead of the stock ones
+for that country:
+
+```bash
+npm run import -- ~/Pictures/travel
+npm run fetch          # merges them into photos.json
+```
+
+Coordinates are read from EXIF GPS, or from the JSON sidecars in an unzipped **Google
+Takeout** export — worth knowing that Takeout is the only Google route that carries
+location at all, since the Photos API returns camera settings and no coordinates
+whatsoever. Point the importer straight at the export:
+
+```bash
+npm run import -- ~/Downloads/Takeout/Google\ Photos
+```
+
+Which country a coordinate falls in is worked out offline, against the same Natural
+Earth shapes the globe draws — no geocoding service involved.
+
+Photos are resized into `public/photos/` (a 2000px copy for the cinema, 600px for the
+strip) and nothing is uploaded anywhere. Anything without a location is still imported
+and listed at the end of the run; give it a `lat`/`lng` or an `iso` in
+`src/data/own.json` and it will place itself on the next build. Set `photographer` in
+that file to have your name appear under your shots.
+
+Making this your own globe: fork, delete `src/data/candidates.json` and the `keep`
+lists in `src/data/countries.config.json` if you want only your own photographs, then
+run the two commands above.
+
 ## Data
 
 The site loads one static file, `public/data/photos.json`, and never calls a photo API
