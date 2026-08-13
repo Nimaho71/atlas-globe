@@ -7,8 +7,9 @@
     <meta name="description" content="Drop in your travel photos and watch your own globe fill up. Nothing is uploaded — the photos stay in your browser.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
 </head>
-<body>
+<body class="studio">
     <div id="globe"></div>
+    <div id="hover-name"></div>
 
     <aside id="panel">
         <header>
@@ -28,6 +29,11 @@
 
         <p id="status" role="status"></p>
 
+        <label class="field">
+            <span>Your name, for the credit line</span>
+            <input type="text" id="author" placeholder="e.g. Nils Högberg" autocomplete="name">
+        </label>
+
         <div id="unplaced" hidden>
             <h2>Needs a home <span id="unplaced-count"></span></h2>
             <p class="hint">These arrived without GPS — most apps strip it. Pick one, then click a country.</p>
@@ -40,7 +46,8 @@
         </div>
 
         <footer>
-            <button id="export" class="btn" hidden>Export for the repo</button>
+            <button id="tour-play" class="btn" hidden>▶ Play your tour</button>
+            <button id="export" class="btn" hidden>Export photos + data (.zip)</button>
             <button id="clear" class="btn quiet" hidden>Remove everything</button>
         </footer>
     </aside>

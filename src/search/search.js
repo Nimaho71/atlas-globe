@@ -21,9 +21,9 @@ export function createSearch({ countries, onPick, onPreview }) {
     const input   = root.querySelector('#search-input');
     const results = root.querySelector('#search-results');
 
-    const sorted = [...countries].sort((a, b) => a.name.localeCompare(b.name));
-    let matches  = [];
-    let active   = -1;
+    let sorted  = [...countries].sort((a, b) => a.name.localeCompare(b.name));
+    let matches = [];
+    let active  = -1;
 
     function search(term) {
         const q = term.trim().toLowerCase();
@@ -108,7 +108,15 @@ export function createSearch({ countries, onPick, onPreview }) {
         input.focus();
     });
 
-    return { root, focus: () => input.focus(), close };
+    return {
+        root,
+        focus: () => input.focus(),
+        close,
+        /** The studio's list grows as photos come in. */
+        setCountries(list) {
+            sorted = [...list].sort((a, b) => a.name.localeCompare(b.name));
+        },
+    };
 }
 
 function escape(s) {

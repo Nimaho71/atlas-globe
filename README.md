@@ -67,6 +67,24 @@ Making this your own globe: fork, delete `src/data/candidates.json` and the `kee
 lists in `src/data/countries.config.json` if you want only your own photographs, then
 run the two commands above.
 
+### …or do it in the browser
+
+[`/studio`](studio/) is the same pipeline without a terminal: drop photos in, they're
+read for GPS, placed offline, downscaled and kept in **IndexedDB in your own browser**
+— nothing is uploaded. Photos with no GPS are placed by picking one and clicking (or
+searching for) a country. The studio carries the whole gallery with it: hover, search,
+the photo strip, the cinema viewer and the world tour, all running on your photos.
+
+**Export photos + data (.zip)** hands back an archive shaped like this repo:
+
+```
+src/data/own.json
+public/photos/*.webp
+README.txt
+```
+
+Unzip it at the root of your fork, run `npm run fetch`, and your globe is a real site.
+
 ## Data
 
 The site loads one static file, `public/data/photos.json`, and never calls a photo API

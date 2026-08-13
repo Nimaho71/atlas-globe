@@ -96,20 +96,25 @@ export async function createGlobe(el, {
 
     const hoverable = f => !!f?.properties.data || (anyCountry && !!f?.properties.iso);
 
+    // Natural Earth carries a few shapes with no ISO code (N. Cyprus, Somaliland,
+    // Kosovo), so their iso is null — and a bare `iso === spotlight` would light
+    // all three up whenever nothing is spotlit at all.
+    const isSpotlit = f => spotlight != null && f.properties.iso === spotlight;
+
     const capColor = f =>
-        f.properties.iso === spotlight     ? PALETTE.spotlight
-      : f === hovered && hoverable(f)      ? PALETTE.hover
-      : f.properties.data                  ? PALETTE.visited
+        isSpotlit(f)                    ? PALETTE.spotlight
+      : f === hovered && hoverable(f)   ? PALETTE.hover
+      : f.properties.data               ? PALETTE.visited
       : PALETTE.land;
 
     const strokeColor = f =>
-        f.properties.iso === spotlight ? PALETTE.spotlightEdge
-      : f.properties.data              ? PALETTE.visitedEdge
+        isSpotlit(f)         ? PALETTE.spotlightEdge
+      : f.properties.data    ? PALETTE.visitedEdge
       : PALETTE.landEdge;
 
     const altitude = f =>
-        f.properties.iso === spotlight ? 0.03
-      : f.properties.data              ? 0.012
+        isSpotlit(f)         ? 0.03
+      : f.properties.data    ? 0.012
       : 0.006;
 
     const repaint = () => globe

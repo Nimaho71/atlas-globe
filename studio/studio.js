@@ -10,6 +10,11 @@ import exifr from 'exifr';
 import { feature } from 'topojson-client';
 import { createLookup } from '../src/lib/point-in-country.js';
 import { createGlobe } from '../src/globe/globe.js';
+import { createCinema } from '../src/cinema/cinema.js';
+import { createStrip } from '../src/strip/strip.js';
+import { createTour } from '../src/tour/tour.js';
+import { createSearch } from '../src/search/search.js';
+import { zip } from '../src/lib/zip.js';
 import * as store from './store.js';
 
 const FULL_W  = 2000;
@@ -27,6 +32,9 @@ const el = {
     placedCount: document.getElementById('placed-count'),
     exportBtn: document.getElementById('export'),
     clearBtn:  document.getElementById('clear'),
+    tourBtn:   document.getElementById('tour-play'),
+    author:    document.getElementById('author'),
+    hover:     document.getElementById('hover-name'),
 };
 
 // ─── map data, shared with the globe ─────────────────────────────────────────
@@ -45,11 +53,63 @@ let photos   = await store.all();          // {id, iso, lat, lng, taken, name, f
 let selected = null;                       // id awaiting a country click
 const urls   = new Map();                  // id -> object URL, revoked on removal
 
-const world = await createGlobe(document.getElementById('globe'), {
-    countries: [],
-    anyCountry: true,                      // every country is clickable here
-    onCountryClick: onCountryPicked,
+// Your name, used under your photos and in the export. Kept locally like
+// everything else here.
+let author = localStorage.getItem('studio-author') || '';
+el.author.value = author;
+el.author.addEventListener('input', () => {
+    author = el.author.value.trim();
+    localStorage.setItem('studio-author', author);
 });
+
+// The globe reads this array live — mutated in place, never replaced, so the
+// tour and search always see the current set.
+const myCountries = [];
+
+const world = await createGlobe(document.getElementById('globe'), {
+    countries: myCountries,
+    anyCountry: true,                      // every country is a target here
+    onCountryClick: onCountryPicked,
+    onCountryHover: country => {
+        el.hover.textContent = country ? `${country.name} · ${country.photos.length} photos` : '';
+        el.hover.classList.toggle('on', !!country);
+    },
+});
+
+const cinema = createCinema({
+    onOpen:  () => world.setPaused(true),
+    onClose: () => world.setPaused(false),
+});
+
+const strip = createStrip({
+    onPhotoClick: (list, i, node) => cinema.open(list, i, node),
+});
+strip.root.querySelector('#strip-close').addEventListener('click', closeCountry);
+
+const tour = createTour({ world, cinema, countries: myCountries });
+
+// Every country is searchable, not just the ones you've filled — that's how you
+// place a photo without hunting for a small country on the globe.
+const search = createSearch({
+    countries: everyCountry(),
+    onPick:    onCountryPicked,
+    // null arrives when the list closes — and it closes just before onPick runs,
+    // so throwing here would swallow the pick entirely
+    onPreview: c => { if (c) world.flyTo(c.lat, c.lng, 1.8, 700); },
+});
+document.body.appendChild(search.root);
+
+el.tourBtn.addEventListener('click', () => { closeCountry(); tour.start(); });
+
+function everyCountry() {
+    return Object.entries(centroids).map(([iso, c]) => ({
+        iso,
+        name: c.name,
+        lat:  c.lat,
+        lng:  c.lng,
+        photos: photos.filter(p => p.iso === iso),
+    }));
+}
 
 if (import.meta.env.DEV) window.__world = world;   // handle for debugging
 
@@ -214,24 +274,58 @@ function downscale(bitmap, width) {
 
 // ─── placing what has no GPS ─────────────────────────────────────────────────
 
+/**
+ * One click, two jobs: if a photo is waiting for a home it lands here,
+ * otherwise this is the gallery and the country opens.
+ */
 function onCountryPicked(country) {
-    if (!selected) return;
-    const photo = photos.find(p => p.id === selected);
-    if (!photo) return;
-
-    photo.iso   = country.iso;
-    photo.place = country.name;
-    store.put(photo);
-    selected = null;
-    say(`Placed in ${country.name}.`);
-    render();
+    if (selected) {
+        const photo = photos.find(p => p.id === selected);
+        if (photo) {
+            photo.iso   = country.iso;
+            photo.place = country.name;
+            store.put(photo);
+            selected = null;
+            say(`Placed in ${country.name}.`);
+            render();
+        }
+        return;
+    }
+    openCountry(country.iso);
 }
+
+function openCountry(iso) {
+    const country = myCountries.find(c => c.iso === iso);
+    if (!country?.photos.length) return;
+    world.autoRotate(false);
+    world.flyTo(country.lat, country.lng, 1.5, 1200);
+    document.body.classList.add('country-open');
+    strip.show(country);
+}
+
+function closeCountry() {
+    strip.hide();
+    document.body.classList.remove('country-open');
+    world.home(1200);
+    world.autoRotate(true);
+}
+
+addEventListener('keydown', e => {
+    if (e.key === 'Escape' && strip.visible && !cinema.isOpen) closeCountry();
+});
 
 // ─── rendering ───────────────────────────────────────────────────────────────
 
 function urlFor(photo) {
     if (!urls.has(photo.id)) urls.set(photo.id, URL.createObjectURL(photo.thumb));
     return urls.get(photo.id);
+}
+
+// the cinema wants the big one; object URLs are cheap but must be revoked once
+function fullUrlFor(photo) {
+    const key = photo.id + ':full';
+    if (!urls.has(key)) urls.set(key, URL.createObjectURL(photo.full));
+    return urls.get(key);
 }
 
 function render() {
@@ -248,22 +342,37 @@ function render() {
     el.unplacedList.replaceChildren(...unplaced.map(p => card(p, true)));
     el.placedList.replaceChildren(...placed.map(p => card(p, false)));
 
-    // group into the shape the globe wants
+    // group into the shape the globe, strip, cinema and tour all expect
     const byIso = new Map();
     for (const p of placed) {
         if (!byIso.has(p.iso)) byIso.set(p.iso, []);
         byIso.get(p.iso).push(p);
     }
-    world.setCountries([...byIso].map(([iso, list]) => {
+
+    myCountries.length = 0;                 // mutate: the tour holds this array
+    for (const [iso, list] of byIso) {
         const home = centroids[iso] ?? {};
-        return {
+        myCountries.push({
             iso,
-            name: list[0].place ?? home.name ?? iso,
-            lat:  list[0].lat ?? home.lat ?? 0,
-            lng:  list[0].lng ?? home.lng ?? 0,
-            photos: list.map(p => ({ id: p.id, url: urlFor(p), source: 'own' })),
-        };
-    }));
+            name: home.name ?? list[0].place ?? iso,
+            lat:  home.lat ?? list[0].lat ?? 0,
+            lng:  home.lng ?? list[0].lng ?? 0,
+            photos: list.map(p => ({
+                id:      p.id,
+                url:     fullUrlFor(p),
+                thumb:   urlFor(p),
+                source:  'own',
+                place:   p.place ?? home.name ?? '',
+                taken:   p.taken ?? '',
+                credit:  { name: author || 'you', link: '' },
+                licence: 'Own work',
+            })),
+        });
+    }
+
+    world.setCountries(myCountries);
+    search.setCountries(everyCountry());
+    el.tourBtn.hidden = myCountries.length < 2;
 }
 
 function card(photo, needsHome) {
@@ -316,8 +425,14 @@ const say = msg => { el.status.textContent = msg; };
 
 el.exportBtn.addEventListener('click', async () => {
     const placed = photos.filter(p => p.iso);
+    if (!placed.length) return;
+
+    const who = author || 'Your name here';
+    el.exportBtn.disabled = true;
+    say('Packing…');
+
     const manifest = {
-        photographer: 'Your name here',
+        photographer: who,
         photos: placed.map(p => ({
             id: p.id,
             source: 'own',
@@ -328,13 +443,49 @@ el.exportBtn.addEventListener('click', async () => {
             ...(p.lat != null ? { lat: p.lat, lng: p.lng } : {}),
             ...(p.taken ? { taken: p.taken } : {}),
             title: '',
-            credit: { name: 'Your name here', link: '' },
+            credit: { name: who, link: '' },
             licence: 'Own work',
         })),
     };
-    download('own.json', new Blob([JSON.stringify(manifest, null, 1)], { type: 'application/json' }));
-    say('own.json saved — drop it into src/data/ in your fork, alongside the photos.');
+
+    const files = [
+        { name: 'src/data/own.json', data: encode(JSON.stringify(manifest, null, 1)) },
+        { name: 'README.txt',        data: encode(README) },
+    ];
+    for (const p of placed) {
+        files.push({ name: `public/photos/${p.id}.webp`,       data: await bytes(p.full) });
+        files.push({ name: `public/photos/${p.id}-thumb.webp`, data: await bytes(p.thumb) });
+    }
+
+    const blob = zip(files);
+    download('world-gallery-export.zip', blob);
+    el.exportBtn.disabled = false;
+    say(`Saved ${placed.length} photos (${mb(blob.size)}) — unzip it over your fork.`);
 });
+
+const README = `Your world gallery
+==================
+
+This zip mirrors the repo's own layout, so unzipping it at the root of your
+fork puts everything where the build expects:
+
+  src/data/own.json      your photos, their countries and dates
+  public/photos/*.webp   the images themselves, already resized
+
+Then:
+
+  npm install
+  npm run fetch     merges own.json into public/data/photos.json
+  npm run dev       open the globe
+
+Nothing here was uploaded anywhere — it came straight out of your browser.
+`;
+
+const encode = s => new TextEncoder().encode(s);
+const bytes  = async blob => new Uint8Array(await blob.arrayBuffer());
+const mb     = n => n < 1024 * 1024
+    ? `${Math.max(1, Math.round(n / 1024))} KB`
+    : `${(n / 1024 / 1024).toFixed(1)} MB`;
 
 // Two-step rather than confirm(): a native modal blocks the page, and this is
 // destructive enough to deserve a deliberate second click either way.

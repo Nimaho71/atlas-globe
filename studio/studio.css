@@ -166,3 +166,70 @@ footer { display: flex; flex-direction: column; gap: 8px; margin-top: auto; padd
 }
 
 .btn.quiet.armed { border-color: rgb(255, 120, 120); color: rgb(255, 140, 140); }
+
+/* ─── name field ─────────────────────────────────────────────────────────── */
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field span { color: rgba(255, 255, 255, 0.4); font-size: 0.68rem; }
+
+.field input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    padding: 9px 12px;
+}
+
+.field input:focus { border-color: var(--green); outline: none; }
+
+/* ─── hovered country readout ────────────────────────────────────────────── */
+
+body.studio #hover-name {
+    bottom: 22px;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    left: calc(var(--panel) + (100vw - var(--panel)) / 2);
+    letter-spacing: 0.16em;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    transform: translate(-50%, 6px);
+    transition: opacity 220ms ease, transform 220ms ease;
+    white-space: nowrap;
+    z-index: 500;
+}
+
+body.studio #hover-name.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* the search box belongs over the globe, not the panel */
+body.studio #search { left: calc(var(--panel) + (100vw - var(--panel)) / 2); }
+
+body.studio.country-open #hover-name,
+body.studio.touring #hover-name,
+body.studio.touring #search { opacity: 0; }
+
+@media (max-width: 760px) {
+    body.studio #hover-name, body.studio #search { left: 50%; }
+}
+
+/* ─── the gallery pieces, shifted clear of the panel ─────────────────────── */
+
+/* strip, cinema and tour are built for a full-viewport page; here the panel
+   owns the left edge, so everything that spans the window starts after it */
+body.studio #strip-root { left: var(--panel); }
+
+body.studio #card-overlay,
+body.studio #tour,
+body.studio #tour::before { left: var(--panel); }
+
+@media (max-width: 760px) {
+    body.studio #strip-root,
+    body.studio #card-overlay,
+    body.studio #tour,
+    body.studio #tour::before { left: 0; }
+}
