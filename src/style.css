@@ -130,9 +130,12 @@ body.country-open .scene-tooltip { display: none; }
 
 #back-link    { bottom: 14px; left: 14px; }
 #credits-link { bottom: 14px; right: 14px; }
+#studio-link  { bottom: 14px; right: 108px; }
 
 body.country-open #credits-link,
-body.touring #credits-link { opacity: 0; pointer-events: none; }
+body.country-open #studio-link,
+body.touring #credits-link,
+body.touring #studio-link { opacity: 0; pointer-events: none; }
 /* top-right: the bottom strip belongs to the tour button */
 #hint      { pointer-events: none; right: 14px; top: 14px; }
 
@@ -170,6 +173,9 @@ body.touring #hover-name { opacity: 0; }
        other links sit along the top instead of fighting it for space */
     #back-link    { bottom: auto; left: 14px;  top: 14px; }
     #credits-link { bottom: auto; right: 14px; top: 14px; }
+    /* the phone picker reaches straight into Photos, so the studio matters most
+       here — it takes the corner the portfolio link vacated */
+    #studio-link  { bottom: 14px; left: 14px; right: auto; top: auto; }
 
     /* no hover on touch, so the readout is dead weight */
     #hover-name { display: none; }

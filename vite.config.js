@@ -7,6 +7,7 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 credits: resolve(__dirname, 'credits/index.html'),
+                studio:  resolve(__dirname, 'studio/index.html'),
                 // the original nature gallery, kept at /gallery
                 gallery: resolve(__dirname, 'gallery/index.html'),
             },

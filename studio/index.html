@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Studio — build your own world gallery</title>
+    <meta name="description" content="Drop in your travel photos and watch your own globe fill up. Nothing is uploaded — the photos stay in your browser.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+</head>
+<body>
+    <div id="globe"></div>
+
+    <aside id="panel">
+        <header>
+            <a class="back" href="/">← the gallery</a>
+            <h1>Studio</h1>
+            <p class="lede">
+                Drop your travel photos in. They're read for GPS, placed on the globe,
+                and kept <strong>in this browser only</strong> — nothing is uploaded.
+            </p>
+        </header>
+
+        <label id="drop" for="picker">
+            <input type="file" id="picker" accept="image/*" multiple hidden>
+            <span class="big">Drop photos here</span>
+            <span class="small">or click to choose · Google Takeout folders work too</span>
+        </label>
+
+        <p id="status" role="status"></p>
+
+        <div id="unplaced" hidden>
+            <h2>Needs a home <span id="unplaced-count"></span></h2>
+            <p class="hint">These arrived without GPS — most apps strip it. Pick one, then click a country.</p>
+            <div id="unplaced-list"></div>
+        </div>
+
+        <div id="placed" hidden>
+            <h2>On the globe <span id="placed-count"></span></h2>
+            <div id="placed-list"></div>
+        </div>
+
+        <footer>
+            <button id="export" class="btn" hidden>Export for the repo</button>
+            <button id="clear" class="btn quiet" hidden>Remove everything</button>
+        </footer>
+    </aside>
+
+    <script type="module" src="./studio.js"></script>
+</body>
+</html>

@@ -23,22 +23,32 @@ const PALETTE = {
     ocean:       '#05080d',
 };
 
-export async function createGlobe(el, { countries, onCountryClick, onCountryHover } = {}) {
+export async function createGlobe(el, {
+    countries,
+    onCountryClick,
+    onCountryHover,
+    // the studio places photos by clicking, so there every country is a target
+    anyCountry = false,
+} = {}) {
     const [topo, iso] = await Promise.all([
         fetch('/data/countries-110m.json').then(r => r.json()),
         fetch('/data/iso.json').then(r => r.json()),
     ]);
 
     const all = feature(topo, topo.objects.countries).features;
-    const byIso = new Map(countries.map(c => [c.iso, c]));
 
-    // Tag each polygon with its ISO code + whether we have photos for it.
     for (const f of all) {
         const meta = iso[String(f.id)];
         f.properties.iso  = meta?.a3 ?? null;
         f.properties.name = meta?.name ?? f.properties.name;
-        f.properties.data = meta ? byIso.get(meta.a3) ?? null : null;
     }
+
+    // Tag each polygon with the country data we hold for it, if any.
+    function tag(list) {
+        const byIso = new Map(list.map(c => [c.iso, c]));
+        for (const f of all) f.properties.data = byIso.get(f.properties.iso) ?? null;
+    }
+    tag(countries ?? []);
 
     const globe = new Globe(el)
         .backgroundColor('#00000000')
@@ -84,10 +94,12 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
     let spotlight = null;   // ISO the tour is flying to
     let legs      = [];     // flight path accumulated during a tour
 
+    const hoverable = f => !!f?.properties.data || (anyCountry && !!f?.properties.iso);
+
     const capColor = f =>
-        f.properties.iso === spotlight        ? PALETTE.spotlight
-      : f === hovered && f.properties.data    ? PALETTE.hover
-      : f.properties.data                     ? PALETTE.visited
+        f.properties.iso === spotlight     ? PALETTE.spotlight
+      : f === hovered && hoverable(f)      ? PALETTE.hover
+      : f.properties.data                  ? PALETTE.visited
       : PALETTE.land;
 
     const strokeColor = f =>
@@ -113,14 +125,19 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
          .polygonAltitude(altitude)
          .polygonsTransitionDuration(220)
          .onPolygonHover(f => {
-             const next = f?.properties.data ? f : null;
+             const next = hoverable(f) ? f : null;
              if (next === hovered) return;
              hovered = next;
              el.style.cursor = hovered ? 'pointer' : '';
              onCountryHover?.(hovered?.properties.data ?? null);
              repaint();
          })
-         .onPolygonClick(f => f?.properties?.data && onCountryClick?.(f.properties.data));
+         .onPolygonClick(f => {
+             if (!hoverable(f)) return;
+             // with anyCountry, a country we hold nothing for still identifies itself
+             onCountryClick?.(f.properties.data ??
+                 { iso: f.properties.iso, name: f.properties.name, photos: [] });
+         });
 
     // ─── camera ──────────────────────────────────────────────────────────────
     const flyTo = (lat, lng, altitude = 1.4, ms = 1200) =>
@@ -137,8 +154,14 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
     };
     document.addEventListener('visibilitychange', () => setPaused(document.hidden));
 
-    const resize = () => globe.width(innerWidth).height(innerHeight);
-    addEventListener('resize', resize);
+    // Size to the host element, not the window — the studio insets the globe
+    // beside a panel, and a canvas wider than its box both crops the globe and
+    // throws off the raycast that hover and clicks depend on.
+    const resize = () => globe
+        .width(el.clientWidth || innerWidth)
+        .height(el.clientHeight || innerHeight);
+
+    new ResizeObserver(resize).observe(el);
     resize();
 
     return {
@@ -147,6 +170,12 @@ export async function createGlobe(el, { countries, onCountryClick, onCountryHove
         home,
         setPaused,
         autoRotate: on => { globe.controls().autoRotate = on && !calm; },
+        /** Swap the whole set — the studio rebuilds it as photos come in. */
+        setCountries(list) {
+            tag(list);
+            globe.pointsData(list);
+            repaint();
+        },
         /** Light up one country — the tour uses this to show where it's heading. */
         spotlight: isoCode => { spotlight = isoCode; repaint(); },
 
