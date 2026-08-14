@@ -75,6 +75,10 @@ read for GPS, placed offline, downscaled and kept in **IndexedDB in your own bro
 searching for) a country. The studio carries the whole gallery with it: hover, search,
 the photo strip, the cinema viewer and the world tour, all running on your photos.
 
+Editing shows the side panel, watching hides it — the cinema and the tour go
+edge-to-edge exactly as they do on the main page. The panel also collapses on demand
+(the tab on its edge, or `P`), and that choice is remembered.
+
 **Export photos + data (.zip)** hands back an archive shaped like this repo:
 
 ```

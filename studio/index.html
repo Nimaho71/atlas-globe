@@ -10,6 +10,7 @@
 <body class="studio">
     <div id="globe"></div>
     <div id="hover-name"></div>
+    <button id="panel-toggle" aria-expanded="true" aria-controls="panel" title="Hide the panel (P)">‹</button>
 
     <aside id="panel">
         <header>
@@ -46,7 +47,8 @@
         </div>
 
         <footer>
-            <button id="tour-play" class="btn" hidden>▶ Play your tour</button>
+            <!-- the arrow comes from #tour-play::before in tour.css -->
+            <button id="tour-play" class="btn" hidden>Play your tour</button>
             <button id="export" class="btn" hidden>Export photos + data (.zip)</button>
             <button id="clear" class="btn quiet" hidden>Remove everything</button>
         </footer>

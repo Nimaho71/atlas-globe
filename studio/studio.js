@@ -33,6 +33,7 @@ const el = {
     exportBtn: document.getElementById('export'),
     clearBtn:  document.getElementById('clear'),
     tourBtn:   document.getElementById('tour-play'),
+    panelToggle: document.getElementById('panel-toggle'),
     author:    document.getElementById('author'),
     hover:     document.getElementById('hover-name'),
 };
@@ -77,8 +78,8 @@ const world = await createGlobe(document.getElementById('globe'), {
 });
 
 const cinema = createCinema({
-    onOpen:  () => world.setPaused(true),
-    onClose: () => world.setPaused(false),
+    onOpen:  () => { world.setPaused(true);  immersive('cinema', true); },
+    onClose: () => { world.setPaused(false); immersive('cinema', false); },
 });
 
 const strip = createStrip({
@@ -86,7 +87,11 @@ const strip = createStrip({
 });
 strip.root.querySelector('#strip-close').addEventListener('click', closeCountry);
 
-const tour = createTour({ world, cinema, countries: myCountries });
+const tour = createTour({
+    world, cinema, countries: myCountries,
+    onStart: () => immersive('tour', true),
+    onStop:  () => immersive('tour', false),
+});
 
 // Every country is searchable, not just the ones you've filled — that's how you
 // place a photo without hunting for a small country on the globe.
@@ -100,6 +105,50 @@ const search = createSearch({
 document.body.appendChild(search.root);
 
 el.tourBtn.addEventListener('click', () => { closeCountry(); tour.start(); });
+
+// ─── the panel ───────────────────────────────────────────────────────────────
+//
+// Editing shows the panel, watching hides it: the cinema and the tour go
+// edge-to-edge like they do on the main page. Outside playback it's yours to
+// collapse, and the choice is remembered.
+
+const PANEL_KEY = 'world-gallery-studio:panel-hidden';
+let panelHidden = localStorage.getItem(PANEL_KEY) === '1';
+
+function applyPanel() {
+    document.body.classList.toggle('panel-hidden', panelHidden);
+    el.panelToggle.setAttribute('aria-expanded', String(!panelHidden));
+    el.panelToggle.title = panelHidden ? 'Show the panel (P)' : 'Hide the panel (P)';
+}
+
+function togglePanel(hidden = !panelHidden) {
+    panelHidden = hidden;
+    localStorage.setItem(PANEL_KEY, hidden ? '1' : '0');
+    applyPanel();
+}
+
+/**
+ * Temporary full-bleed for playback — it doesn't overwrite the saved choice.
+ *
+ * Two things ask for it independently, and the tour closes the cinema between
+ * every country: if the cinema's close cleared the flag outright, the panel
+ * would slide back in on each flight.
+ */
+const holds = { cinema: false, tour: false };
+function immersive(who, on) {
+    holds[who] = on;
+    document.body.classList.toggle('immersive', holds.cinema || holds.tour);
+}
+
+el.panelToggle.addEventListener('click', () => togglePanel());
+
+addEventListener('keydown', e => {
+    if (e.key !== 'p' && e.key !== 'P') return;
+    if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;   // not while typing
+    togglePanel();
+});
+
+applyPanel();
 
 function everyCountry() {
     return Object.entries(centroids).map(([iso, c]) => ({

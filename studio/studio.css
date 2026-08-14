@@ -233,3 +233,66 @@ body.studio #tour::before { left: var(--panel); }
     body.studio #tour,
     body.studio #tour::before { left: 0; }
 }
+
+/* ─── hiding the panel ───────────────────────────────────────────────────── */
+
+/* Everything positions off --panel, so collapsing it to zero shifts the globe,
+   the search box, the strip and the cinema in one move. */
+body.studio.panel-hidden,
+body.studio.immersive { --panel: 0px; }
+
+body.studio.panel-hidden #panel,
+body.studio.immersive #panel { transform: translateX(-100%); }
+
+#panel { transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+#panel-toggle {
+    backdrop-filter: blur(3px);
+    background: rgba(4, 7, 11, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0 8px 8px 0;
+    color: rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    left: var(--panel);
+    padding: 10px 7px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 420ms cubic-bezier(0.16, 1, 0.3, 1), background 250ms, color 250ms;
+    z-index: 20;
+}
+
+#panel-toggle:hover { background: rgba(139, 215, 95, 0.16); color: var(--green); }
+
+body.studio.panel-hidden #panel-toggle { transform: translateY(-50%) rotate(180deg); }
+
+/* while watching, the toggle gets out of the way too */
+body.studio.immersive #panel-toggle { opacity: 0; pointer-events: none; }
+
+@media (max-width: 760px) {
+    /* the panel sits above the globe rather than beside it, so there's nothing
+       to collapse */
+    #panel-toggle { display: none; }
+    body.studio.panel-hidden #panel,
+    body.studio.immersive #panel { transform: none; }
+}
+
+/* ─── the tour button, re-homed ──────────────────────────────────────────── */
+
+/* On the main page this is a fixed, centred pill. Here it's an ordinary button
+   in the panel footer, so undo the fixed-position styling — otherwise the
+   inherited translateX(-50%) drags it off the left edge. */
+body.studio #tour-play {
+    bottom: auto;
+    justify-content: center;
+    left: auto;
+    position: static;
+    right: auto;
+    transform: none;
+    width: 100%;
+}
+
+/* tour.css sets display on #tour-play, which outranks the UA rule for [hidden] */
+body.studio #tour-play[hidden] { display: none; }
